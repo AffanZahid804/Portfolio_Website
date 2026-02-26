@@ -216,7 +216,7 @@ const Contact = () => {
           color: 'var(--gray)',
           fontSize: '1rem',
         }}>
-          © 2024 Affan Zahid. All rights reserved. Built with ❤️ using React & Vite.
+          © 2025 Affan Zahid. All rights reserved. Built with ❤️ using React & Vite.
         </p>
       </motion.div>
     </section>

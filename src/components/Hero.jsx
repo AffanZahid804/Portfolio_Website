@@ -5,8 +5,8 @@ import { FiDownload, FiGithub, FiLinkedin, FiMail, FiArrowRight, FiBriefcase } f
 const Hero = () => {
   const [imageError, setImageError] = useState(false)
   
-  // Image path - place your image in public/images/profile.jpg or update this path
-  const profileImage = '/images/affan.jpeg'
+  // Image path - use BASE_URL so images work with base path (e.g. /Portfolio_Website/)
+  const profileImage = `${import.meta.env.BASE_URL}images/affan.jpeg`
   return (
     <section id="home" className="section" style={{
       display: 'flex',
@@ -85,9 +85,9 @@ const Hero = () => {
               maxWidth: '600px',
             }}
           >
-            I create innovative web and mobile applications with a focus on scalable, 
-            user-centric solutions. Specialized in React Native, Node.js, Python, and cloud technologies. 
-            Available for projects on Upwork.
+            Full Stack and Mobile Application Developer with experience building scalable web and mobile 
+            applications using React.js, React Native, Node.js, and modern JavaScript. Skilled in high-performance 
+            user-centric products, real-time systems, and RESTful APIs. Available for projects on Upwork.
           </motion.p>
 
           <motion.div
@@ -108,7 +108,7 @@ const Hero = () => {
             <a href="#contact" className="btn btn-outline">
               <FiMail /> Get In Touch
             </a>
-            <a href="/Resume Affan Zahid__.pdf" className="btn btn-outline" download target="_blank" rel="noopener noreferrer">
+            <a href={`${import.meta.env.BASE_URL}AffanResume-Dev.pdf`} className="btn btn-outline" download target="_blank" rel="noopener noreferrer">
               <FiDownload /> Download CV
             </a>
           </motion.div>

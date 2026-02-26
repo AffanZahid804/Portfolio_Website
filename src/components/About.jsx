@@ -76,10 +76,10 @@ const About = () => {
             lineHeight: 1.8,
             marginBottom: '25px',
           }}>
-            I'm a Software Engineer based in Lahore, Pakistan, specializing in full-stack development 
-            with expertise in React Native, Node.js, Python, and Django. My passion lies in building 
-            scalable, user-centric applications that solve real-world problems through clean architecture 
-            and modern technologies.
+            I'm a Software Engineer based in Lahore, Pakistan, with strong experience in React.js, React Native, 
+            Node.js, and modern JavaScript. I build scalable web and mobile applications, real-time systems, 
+            and RESTful APIs, and have delivered production-ready solutions across SaaS, mobile, and web for 
+            international clients and remote teams.
           </p>
           <p style={{
             fontSize: '1.1rem',
@@ -87,10 +87,10 @@ const About = () => {
             lineHeight: 1.8,
             marginBottom: '25px',
           }}>
-            Currently, I'm working at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Full Stack Developer, 
-            where I've contributed to innovative mobile applications and AI-powered solutions. My work includes 
-            developing real-time chat systems, implementing OAuth authentication, and building AI chatbots using 
-            RAG and Vector DB technologies.
+            Currently, I'm working at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer, 
+            where I build scalable mobile and web applications with React Native and Node.js. My work includes 
+            real-time chat (Socket.io), push notifications (Firebase), OAuth/JWT authentication, and a real-estate 
+            listing platform (NestJS, PostgreSQL, AWS).
           </p>
           <p style={{
             fontSize: '1.1rem',
@@ -98,8 +98,8 @@ const About = () => {
             lineHeight: 1.8,
             marginBottom: '40px',
           }}>
-            I've also worked on mobile applications and collaborated with the team on <strong style={{ color: 'var(--primary)' }}>T-Mobile</strong> projects, 
-            contributing to the development of their website and improving overall user experience. I'm available for 
+            I've previously worked at <strong style={{ color: 'var(--primary)' }}>360HR</strong>, <strong style={{ color: 'var(--primary)' }}>Skylinx Technologies</strong>, and <strong style={{ color: 'var(--primary)' }}>OopTech</strong>, 
+            delivering React, Next.js, and MERN stack solutions for global clients. I'm available for 
             freelance projects on <strong style={{ color: 'var(--primary)' }}>Upwork</strong>, where I help businesses transform their ideas 
             into impactful digital products.
           </p>

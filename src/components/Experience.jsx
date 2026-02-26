@@ -5,53 +5,80 @@ const Experience = () => {
   const experiences = [
     {
       type: 'fulltime',
-      title: 'Full Stack Developer',
+      title: 'Software Engineer',
       company: 'Euphoria XR',
       location: 'Remote',
       period: 'June 2024 – Present',
-      description: 'Contributing to innovative web and mobile applications with a focus on scalable, user-centric solutions. Working on cutting-edge projects including mobile apps and AI-powered chatbots.',
+      description: 'Building scalable web and mobile applications with React Native and Node.js. Delivering real-time systems, RESTful APIs, and secure authentication. Also developed a real-estate listing platform with NestJS and PostgreSQL on AWS.',
       achievements: [
-        'Architected and implemented intuitive swipe functionality in React Native, enhancing user engagement',
-        'Designed and deployed real-time push notifications using Firebase Cloud Messaging',
-        'Engineered robust chat module with Socket.io for real-time bidirectional communication',
-        'Developed comprehensive event management system with location-based features using MongoDB geospatial queries',
-        'Implemented secure authentication systems using OAuth and JWT for multiple social platforms',
-        'Built AI-powered chatbot with RAG and Vector DB for accurate, context-aware responses',
-        'Developed voice calling functionality with speech-to-text and text-to-speech capabilities'
+        'Architected and implemented advanced mobile features using React Native and Node.js',
+        'Designed real-time push notifications using Firebase Cloud Messaging',
+        'Built chat module using Socket.io with real-time synchronization',
+        'Developed scalable event management system and RESTful APIs',
+        'Implemented OAuth and JWT based secure authentication; integrated Google, Apple and LinkedIn social logins',
+        'Implemented MongoDB geospatial features for location-based discovery',
+        'Developed scalable real-estate platform (Zameen.com-style): NestJS + PostgreSQL on AWS, secure admin portal for listing and user management'
       ],
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'Python', 'Django', 'AWS', 'Socket.io', 'Firebase', 'OAuth', 'JWT', 'RAG', 'Vector DB']
+      technologies: ['React Native', 'Node.js', 'MongoDB', 'NestJS', 'PostgreSQL', 'AWS', 'Socket.io', 'Firebase', 'OAuth', 'JWT']
     },
     {
       type: 'fulltime',
       title: 'Associate Software Engineer',
       company: '360HR',
       location: 'Remote',
-      period: 'July 2023 - Aug 2024',
-      description: 'Led development of scalable Job Posting Website, optimizing responsive design and state management to enhance user experience and system reliability.',
+      period: 'July 2023 – Aug 2024',
+      description: 'Led development of scalable Job Posting platform with optimized UI and high-performance React interfaces.',
       achievements: [
-        'Led development of scalable Job Posting Website with optimized responsive design',
-        'Built and maintained robust Node.js RESTful APIs for user management and workflows',
-        'Crafted sleek, high-performance React interfaces for fast and intuitive user experience',
-        'Ensured seamless real-time data processing for job applications and user interactions',
-        'Collaborated with team on software projects and debugging complex issues'
+        'Led development of scalable Job Posting platform with optimized UI',
+        'Built Node.js RESTful APIs and high-performance React interfaces',
+        'Collaborated with team on debugging and new feature delivery'
       ],
       technologies: ['React', 'Node.js', 'RESTful APIs', 'JavaScript', 'HTML/CSS']
     },
     {
       type: 'fulltime',
-      title: 'Web Developer',
-      company: 'T-Mobile',
+      title: 'React.js Developer',
+      company: 'Skylinx Technologies',
       location: 'Remote',
-      period: 'June 2022 - August 2023',
-      description: 'Experienced React and Node.js Developer contributing to the development and optimization of internal web tools, improving performance, and enhancing user experience across digital platforms.',
+      period: 'Jan 2022 – 2023',
+      description: 'Developed scalable React.js and Next.js applications for global clients with responsive UI and integrated APIs.',
       achievements: [
-        'Developed and optimized internal web tools using React and Node.js',
-        'Improved application performance and enhanced user experience across digital platforms',
-        'Built scalable, high-performance applications with a focus on functionality and user-centric design',
-        'Implemented API-driven architectures for seamless data processing',
-        'Collaborated with cross-functional teams to deliver cutting-edge web solutions'
+        'Developed scalable React.js and Next.js applications for global clients',
+        'Built responsive UI components and dashboards',
+        'Integrated APIs, authentication systems, and third-party services',
+        'Improved performance using lazy loading and code optimization'
       ],
-      technologies: ['React', 'Node.js', 'JavaScript', 'RESTful APIs', 'HTML/CSS', 'Web Performance Optimization']
+      technologies: ['React', 'Next.js', 'JavaScript', 'RESTful APIs', 'HTML/CSS']
+    },
+    {
+      type: 'fulltime',
+      title: 'MERN Stack Developer',
+      company: 'OopTech',
+      location: 'Remote',
+      period: 'Jan 2021 – Dec 2021',
+      description: 'Built full-stack applications using MERN stack including admin dashboards, SaaS platforms, and APIs.',
+      achievements: [
+        'Built full-stack applications using MERN stack',
+        'Developed admin dashboards, SaaS platforms, and APIs',
+        'Integrated payment gateways and external APIs',
+        'Optimized backend and frontend performance'
+      ],
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JavaScript', 'RESTful APIs']
+    },
+    {
+      type: 'freelance',
+      title: 'Freelance Developer',
+      company: 'Web & Mobile Applications',
+      location: 'Remote',
+      period: 'Jan 2021 – June 2021',
+      description: 'Delivered custom web and mobile apps for international clients with end-to-end deployment and client delivery.',
+      achievements: [
+        'Delivered custom web and mobile apps for international clients',
+        'Built React.js and Next.js web applications',
+        'Developed React Native mobile apps with API integrations',
+        'Managed deployment and client delivery lifecycle'
+      ],
+      technologies: ['React', 'React Native', 'Next.js', 'Node.js', 'JavaScript']
     }
   ]
 

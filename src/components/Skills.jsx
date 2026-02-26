@@ -4,7 +4,7 @@ import {
   SiHtml5, SiCss3, SiMongodb, SiPostgresql,
   SiGit, SiFigma, SiFirebase, SiTypescript,
   SiNextdotjs, SiTailwindcss, SiExpress, SiDjango,
-  SiAmazonaws, SiSocketdotio
+  SiAmazonwebservices, SiSocketdotio
 } from 'react-icons/si'
 import { FaReact } from 'react-icons/fa'
 
@@ -40,7 +40,7 @@ const Skills = () => {
       title: 'Cloud & AI',
       color: '#ec4899',
       skills: [
-        { name: 'AWS', icon: <SiAmazonaws />, level: 85, color: '#ff9900' },
+        { name: 'AWS', icon: <SiAmazonwebservices />, level: 85, color: '#ff9900' },
         { name: 'OAuth 2.0', icon: <SiGit />, level: 88, color: '#4285f4' },
         { name: 'JWT', icon: <SiGit />, level: 90, color: '#d63aff' },
         { name: 'RAG & Vector DB', icon: <SiPython />, level: 85, color: '#3776ab' },
