@@ -70,7 +70,7 @@ const Hero = () => {
             <br />
             <span style={{ fontSize: '0.8em' }}>Software Engineer</span>
             <br />
-            <span style={{ fontSize: '0.7em', color: 'var(--gray)' }}>Full Stack Developer</span>
+        
           </motion.h1>
 
           <motion.p
