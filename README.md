@@ -36,6 +36,25 @@ npm run build
 npm run preview
 ```
 
+## 🌐 Deploy to GitHub Pages
+
+The site is configured for **https://affanzahid804.github.io/Portfolio_Website/**.
+
+1. **Use the GitHub Actions workflow** (included in this repo):
+   - On push to `main`, the workflow builds the app and deploys the **built** files to GitHub Pages (so the site loads correctly).
+
+2. **Set Pages to deploy from Actions** (one-time):
+   - Go to your repo → **Settings** → **Pages**.
+   - Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
+   - Save.
+
+3. **Push the workflow and trigger deploy**:
+   - Commit and push the `.github/workflows/deploy-pages.yml` file (and any other changes).
+   - Open the **Actions** tab and confirm the "Deploy to GitHub Pages" workflow runs and completes.
+   - The site will be live at **https://affanzahid804.github.io/Portfolio_Website/**.
+
+If the page was blank before, it was because GitHub Pages was serving the **source** (raw `.jsx` files) instead of the **built** output. The workflow fixes this by building with Vite and deploying the `dist/` folder.
+
 ## 🎨 Customization
 
 All content is hardcoded as requested. You can easily customize:
