@@ -26,3 +26,4 @@ dist-ssr
 # Package files (do not ignore package.json - required for install and CI)
 # package-lock.json
 
+config.bat

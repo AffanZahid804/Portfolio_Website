@@ -183,7 +183,7 @@ const Projects = () => {
               )}
             </div>
 
-            <div style={{
+            <div className="project-content" style={{
               padding: '35px',
             }}>
               <h3 style={{

@@ -4,7 +4,7 @@ import {
   SiHtml5, SiCss3, SiMongodb, SiPostgresql,
   SiGit, SiFigma, SiFirebase, SiTypescript,
   SiNextdotjs, SiTailwindcss, SiExpress, SiDjango,
-  SiAmazonwebservices, SiSocketdotio
+  SiAmazonwebservices, SiSocketdotio, SiNestjs
 } from 'react-icons/si'
 import { FaReact } from 'react-icons/fa'
 
@@ -27,10 +27,12 @@ const Skills = () => {
       color: '#8b5cf6',
       skills: [
         { name: 'Node.js', icon: <SiNodedotjs />, level: 92, color: '#339933' },
+        { name: 'NestJS', icon: <SiNestjs />, level: 88, color: '#E0234E' },
         { name: 'Express', icon: <SiExpress />, level: 90, color: '#000000' },
         { name: 'Python', icon: <SiPython />, level: 88, color: '#3776ab' },
         { name: 'Django', icon: <SiDjango />, level: 85, color: '#092e20' },
         { name: 'MongoDB', icon: <SiMongodb />, level: 90, color: '#47a248' },
+        { name: 'PostgreSQL', icon: <SiPostgresql />, level: 88, color: '#336791' },
         { name: 'RESTful APIs', icon: <SiNodedotjs />, level: 92, color: '#339933' },
         { name: 'Socket.io', icon: <SiSocketdotio />, level: 88, color: '#010101' },
         { name: 'Firebase', icon: <SiFirebase />, level: 87, color: '#ffca28' },
@@ -127,33 +129,20 @@ const Skills = () => {
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
+                    gap: '12px',
                     marginBottom: '10px',
                   }}>
                     <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
+                      fontSize: '1.8rem',
+                      color: skill.color || category.color,
                     }}>
-                      <div style={{
-                        fontSize: '1.8rem',
-                        color: skill.color || category.color,
-                      }}>
-                        {skill.icon}
-                      </div>
-                      <span style={{
-                        fontWeight: 600,
-                        fontSize: '1.1rem',
-                      }}>
-                        {skill.name}
-                      </span>
+                      {skill.icon}
                     </div>
                     <span style={{
-                      color: 'var(--gray)',
                       fontWeight: 600,
-                      fontSize: '0.9rem',
+                      fontSize: '1.1rem',
                     }}>
-                      {skill.level}%
+                      {skill.name}
                     </span>
                   </div>
                   <div style={{

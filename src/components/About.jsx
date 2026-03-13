@@ -62,7 +62,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h3 style={{
+          <h3 className="about-left-heading" style={{
             fontSize: '2.5rem',
             fontWeight: 700,
             marginBottom: '30px',
@@ -104,7 +104,7 @@ const About = () => {
             into impactful digital products.
           </p>
 
-          <div style={{
+          <div className="about-stats-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '30px',

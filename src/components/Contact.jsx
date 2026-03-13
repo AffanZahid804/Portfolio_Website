@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiBriefcase } from 'react-icons/fi'
+import { SiWhatsapp } from 'react-icons/si'
 
 const Contact = () => {
   const contactInfo = [
@@ -30,6 +31,7 @@ const Contact = () => {
     { icon: <FiGithub />, name: 'GitHub', link: 'https://github.com/AffanZahid804', color: '#333' },
     { icon: <FiLinkedin />, name: 'LinkedIn', link: 'https://www.linkedin.com/in/affan-zahid', color: '#0077b5' },
     { icon: <FiBriefcase />, name: 'Upwork', link: 'https://www.upwork.com/freelancers/~01dabd00704ad7f10b?viewMode=1', color: '#14a800' },
+    { icon: <SiWhatsapp />, name: 'WhatsApp', link: 'https://wa.me/923314906039', color: '#25d366' },
   ]
 
   return (
@@ -66,7 +68,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h3 style={{
+          <h3 className="contact-section-heading" style={{
             fontSize: '2.2rem',
             fontWeight: 700,
             marginBottom: '20px',

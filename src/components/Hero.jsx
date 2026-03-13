@@ -114,6 +114,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
+            className="hero-social-links"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8 }}
@@ -121,6 +122,7 @@ const Hero = () => {
               display: 'flex',
               gap: '20px',
               alignItems: 'center',
+              flexWrap: 'wrap',
             }}
           >
             <span style={{ color: 'var(--gray)', marginRight: '10px' }}>Follow me:</span>
@@ -205,6 +207,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
+          className="hero-image-column"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
@@ -230,6 +233,7 @@ const Hero = () => {
             animation: 'float 6s ease-in-out infinite',
             position: 'relative',
             overflow: 'hidden',
+            flexShrink: 0,
           }}>
             <div style={{
               position: 'absolute',
