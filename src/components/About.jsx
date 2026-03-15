@@ -23,7 +23,7 @@ const About = () => {
   const stats = [
     { icon: <FiBriefcase />, number: '10+', label: 'Projects Worked On' },
     { icon: <FiUsers />, number: '5+', label: 'Happy Clients' },
-    { icon: <FiAward />, number: '2+', label: 'Years Experience' },
+    { icon: <FiAward />, number: '4+', label: 'Years Experience' },
   ]
 
   return (
@@ -76,10 +76,11 @@ const About = () => {
             lineHeight: 1.8,
             marginBottom: '25px',
           }}>
-            I'm a Software Engineer based in Lahore, Pakistan, with strong experience in React.js, React Native, 
-            Node.js, and modern JavaScript. I build scalable web and mobile applications, real-time systems, 
-            and RESTful APIs, and have delivered production-ready solutions across SaaS, mobile, and web for 
-            international clients and remote teams.
+            I'm a Software Engineer based in Lahore, Pakistan, with extensive experience in React.js, React Native, 
+            Node.js, Next.js, NestJS, and modern JavaScript. I specialize in building scalable, high-performance 
+            web and mobile applications, designing real-time systems, and developing robust RESTful APIs. I have 
+            delivered production-ready solutions for SaaS platforms, real estate applications, and international 
+            clients, collaborating effectively with distributed remote teams.
           </p>
           <p style={{
             fontSize: '1.1rem',
@@ -87,10 +88,12 @@ const About = () => {
             lineHeight: 1.8,
             marginBottom: '25px',
           }}>
-            Currently, I'm working at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer, 
-            where I build scalable mobile and web applications with React Native and Node.js. My work includes 
-            real-time chat (Socket.io), push notifications (Firebase), OAuth/JWT authentication, and a real-estate 
-            listing platform (NestJS, PostgreSQL, AWS).
+            Currently, I work at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer, 
+            where I lead the development of complex, enterprise-grade mobile and web applications. My responsibilities 
+            include architecting scalable solutions, optimizing performance across platforms, integrating cloud 
+            services (AWS), designing relational databases (PostgreSQL), and ensuring maintainable, modular 
+            codebases. I focus on delivering end-to-end solutions that balance user experience, reliability, and 
+            long-term scalability, while mentoring junior developers and driving best practices across the team.
           </p>
           <p style={{
             fontSize: '1.1rem',

@@ -85,9 +85,7 @@ const Hero = () => {
               maxWidth: '600px',
             }}
           >
-            Full Stack and Mobile Application Developer with experience building scalable web and mobile 
-            applications using React.js, React Native, Node.js, and modern JavaScript. Skilled in high-performance 
-            user-centric products, real-time systems, and RESTful APIs. Available for projects on Upwork.
+            Full Stack and Mobile Application Developer with experience building scalable web and mobile applications using React.js, React Native, Next.js, Node.js, Nest.js, and modern JavaScript. Skilled in high-performance user-centric products, real-time systems, and RESTful APIs. Available for projects on Upwork.
           </motion.p>
 
           <motion.div
