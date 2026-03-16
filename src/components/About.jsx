@@ -6,18 +6,21 @@ const About = () => {
     {
       icon: <FiCode />,
       title: 'Clean Code',
-      description: 'Writing maintainable, scalable code following industry best practices and SOLID principles'
+      description: 'Writing maintainable, scalable code following industry best practices and SOLID principles',
+      color: '#6366f1',
     },
     {
       icon: <FiLayers />,
       title: 'Modern Stack',
-      description: 'Using cutting-edge technologies and frameworks for optimal performance and user experience'
+      description: 'Using cutting-edge technologies and frameworks for optimal performance and user experience',
+      color: '#8b5cf6',
     },
     {
       icon: <FiTrendingUp />,
       title: 'Performance',
-      description: 'Optimized applications that load fast, run smoothly, and scale efficiently'
-    }
+      description: 'Optimized applications that load fast, run smoothly, and scale efficiently',
+      color: '#ec4899',
+    },
   ]
 
   const stats = [
@@ -26,10 +29,27 @@ const About = () => {
     { icon: <FiAward />, number: '4+', label: 'Years Experience' },
   ]
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12 } },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] } },
+  }
+
   return (
     <section id="about" className="section" style={{ position: 'relative' }}>
-      <div className="glow" style={{ top: '50%', left: '-300px', transform: 'translateY(-50%)' }} />
-      
+      <div
+        className="glow"
+        style={{
+          top: '50%',
+          left: '-300px',
+          transform: 'translateY(-50%)',
+        }}
+      />
+
       <motion.h2
         className="section-title"
         initial={{ opacity: 0, y: 30 }}
@@ -39,117 +59,114 @@ const About = () => {
       >
         About Me
       </motion.h2>
+
+      {/* Divider */}
+      <motion.div
+        className="section-divider"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+      />
+
       <motion.p
         className="section-subtitle"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
       >
         Get to know more about my journey, expertise, and passion for creating exceptional digital experiences
       </motion.p>
 
-      <div className="about-container" style={{
-        display: 'grid',
-        gridTemplateColumns: '1.2fr 1fr',
-        gap: '80px',
-        alignItems: 'start',
-        marginTop: '60px',
-      }}>
+      <div
+        className="about-container"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1.2fr 1fr',
+          gap: '80px',
+          alignItems: 'start',
+          marginTop: '60px',
+        }}
+      >
+        {/* Left */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
         >
-          <h3 className="about-left-heading" style={{
-            fontSize: '2.5rem',
-            fontWeight: 700,
-            marginBottom: '30px',
-            lineHeight: 1.2,
-          }}>
-            Building Scalable Solutions with <span className="gradient-text">Innovation & Excellence</span>
-          </h3>
-          <p style={{
-            fontSize: '1.1rem',
-            color: 'var(--gray)',
-            lineHeight: 1.8,
-            marginBottom: '25px',
-          }}>
-            I'm a Software Engineer based in Lahore, Pakistan, with extensive experience in React.js, React Native, 
-            Node.js, Next.js, NestJS, and modern JavaScript. I specialize in building scalable, high-performance 
-            web and mobile applications, designing real-time systems, and developing robust RESTful APIs. I have 
-            delivered production-ready solutions for SaaS platforms, real estate applications, and international 
-            clients, collaborating effectively with distributed remote teams.
-          </p>
-          <p style={{
-            fontSize: '1.1rem',
-            color: 'var(--gray)',
-            lineHeight: 1.8,
-            marginBottom: '25px',
-          }}>
-            Currently, I work at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer, 
-            where I lead the development of complex, enterprise-grade mobile and web applications. My responsibilities 
-            include architecting scalable solutions, optimizing performance across platforms, integrating cloud 
-            services (AWS), designing relational databases (PostgreSQL), and ensuring maintainable, modular 
-            codebases. I focus on delivering end-to-end solutions that balance user experience, reliability, and 
-            long-term scalability, while mentoring junior developers and driving best practices across the team.
-          </p>
-          <p style={{
-            fontSize: '1.1rem',
-            color: 'var(--gray)',
-            lineHeight: 1.8,
-            marginBottom: '40px',
-          }}>
-            I've previously worked at <strong style={{ color: 'var(--primary)' }}>360HR</strong>, <strong style={{ color: 'var(--primary)' }}>Skylinx Technologies</strong>, and <strong style={{ color: 'var(--primary)' }}>OopTech</strong>, 
-            delivering React, Next.js, and MERN stack solutions for global clients. I'm available for 
-            freelance projects on <strong style={{ color: 'var(--primary)' }}>Upwork</strong>, where I help businesses transform their ideas 
-            into impactful digital products.
-          </p>
+          <motion.h3
+            variants={itemVariants}
+            className="about-left-heading"
+            style={{
+              fontSize: '2.4rem',
+              fontWeight: 700,
+              marginBottom: '30px',
+              lineHeight: 1.2,
+            }}
+          >
+            Building Scalable Solutions with{' '}
+            <span className="gradient-text">Innovation & Excellence</span>
+          </motion.h3>
 
-          <div className="about-stats-grid" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '30px',
-          }}>
+          {[
+            `I'm a Software Engineer based in Lahore, Pakistan, with extensive experience in React.js, React Native, Node.js, Next.js, NestJS, and modern JavaScript. I specialize in building scalable, high-performance web and mobile applications, designing real-time systems, and developing robust RESTful APIs.`,
+            <>Currently, I work at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer, where I lead development of enterprise-grade mobile and web applications. I architect scalable solutions, optimize performance across platforms, integrate cloud services (AWS), and ensure maintainable modular codebases.</>,
+            <>Previously worked at <strong style={{ color: 'var(--primary)' }}>360HR</strong>, <strong style={{ color: 'var(--primary)' }}>Skylinx Technologies</strong>, and <strong style={{ color: 'var(--primary)' }}>OopTech</strong>. Available for freelance on <strong style={{ color: 'var(--primary)' }}>Upwork</strong>.</>,
+          ].map((text, i) => (
+            <motion.p
+              key={i}
+              variants={itemVariants}
+              style={{
+                fontSize: '1.08rem',
+                color: 'var(--gray)',
+                lineHeight: 1.85,
+                marginBottom: '22px',
+              }}
+            >
+              {text}
+            </motion.p>
+          ))}
+
+          {/* Stats */}
+          <div
+            className="about-stats-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '24px',
+              marginTop: '10px',
+            }}
+          >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 className="card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                style={{
-                  textAlign: 'center',
-                  padding: '30px 20px',
-                }}
+                transition={{ delay: index * 0.12, duration: 0.6 }}
+                whileHover={{ scale: 1.07, y: -5 }}
+                style={{ textAlign: 'center', padding: '28px 18px' }}
               >
                 <div style={{
-                  fontSize: '2rem',
+                  fontSize: '1.8rem',
                   color: 'var(--primary)',
-                  marginBottom: '15px',
+                  marginBottom: '12px',
                   display: 'flex',
                   justifyContent: 'center',
                 }}>
                   {stat.icon}
                 </div>
-                <div style={{
-                  fontSize: '2.5rem',
-                  fontWeight: 700,
-                  background: 'var(--gradient-1)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  marginBottom: '10px',
+                <div className="stat-number" style={{
+                  fontSize: '2.4rem',
+                  fontWeight: 800,
+                  marginBottom: '8px',
                 }}>
                   {stat.number}
                 </div>
-                <div style={{
-                  color: 'var(--gray)',
-                  fontSize: '0.95rem',
-                }}>
+                <div style={{ color: 'var(--gray)', fontSize: '0.9rem', lineHeight: 1.4 }}>
                   {stat.label}
                 </div>
               </motion.div>
@@ -157,57 +174,48 @@ const About = () => {
           </div>
         </motion.div>
 
+        {/* Right — Feature Cards */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '25px',
-          }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
         >
           {features.map((feature, index) => (
             <motion.div
               key={index}
               className="card"
-              whileHover={{ scale: 1.02, x: 10 }}
-              initial={{ opacity: 0, y: 20 }}
+              whileHover={{ scale: 1.03, x: 10 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              style={{
-                padding: '35px',
-              }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              style={{ padding: '32px' }}
             >
-              <div style={{
-                width: '70px',
-                height: '70px',
-                marginBottom: '25px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'var(--gradient-1)',
-                borderRadius: '18px',
-                fontSize: '2rem',
-                color: 'var(--white)',
-                boxShadow: '0 10px 30px rgba(99, 102, 241, 0.3)',
-              }}>
+              <motion.div
+                style={{
+                  width: '68px',
+                  height: '68px',
+                  marginBottom: '22px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: `linear-gradient(135deg, ${feature.color}, ${feature.color}cc)`,
+                  borderRadius: '18px',
+                  fontSize: '1.9rem',
+                  color: 'var(--white)',
+                  boxShadow: `0 12px 36px ${feature.color}50`,
+                }}
+                whileHover={{ rotate: 8, scale: 1.1 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 {feature.icon}
-              </div>
-              <h4 style={{
-                fontSize: '1.5rem',
-                fontWeight: 600,
-                marginBottom: '15px',
-              }}>
+              </motion.div>
+              <h4 style={{ fontSize: '1.45rem', fontWeight: 700, marginBottom: '12px' }}>
                 {feature.title}
               </h4>
-              <p style={{
-                color: 'var(--gray)',
-                lineHeight: 1.7,
-                fontSize: '1rem',
-              }}>
+              <p style={{ color: 'var(--gray)', lineHeight: 1.75, fontSize: '0.98rem' }}>
                 {feature.description}
               </p>
             </motion.div>
@@ -219,4 +227,3 @@ const About = () => {
 }
 
 export default About
-

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { SiWhatsapp } from 'react-icons/si'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -9,18 +9,89 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Reviews from './components/Reviews'
 import Contact from './components/Contact'
+import ThemeSwitcher from './components/ThemeSwitcher'
+import { ThemeProvider } from './context/ThemeContext'
 
-function App() {
+const CustomCursor = () => {
+  const dotRef = useRef(null)
+  const ringRef = useRef(null)
+  const posRef = useRef({ x: 0, y: 0 })
+  const ringPosRef = useRef({ x: 0, y: 0 })
+  const rafRef = useRef(null)
+  const [hovering, setHovering] = useState(false)
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      posRef.current = { x: e.clientX, y: e.clientY }
+      if (dotRef.current) {
+        dotRef.current.style.left = `${e.clientX}px`
+        dotRef.current.style.top = `${e.clientY}px`
+      }
+    }
+
+    const animateRing = () => {
+      ringPosRef.current.x += (posRef.current.x - ringPosRef.current.x) * 0.12
+      ringPosRef.current.y += (posRef.current.y - ringPosRef.current.y) * 0.12
+      if (ringRef.current) {
+        ringRef.current.style.left = `${ringPosRef.current.x}px`
+        ringRef.current.style.top = `${ringPosRef.current.y}px`
+      }
+      rafRef.current = requestAnimationFrame(animateRing)
+    }
+
+    const handleMouseOver = (e) => {
+      const el = e.target
+      const style = window.getComputedStyle(el)
+      setHovering(style.cursor === 'pointer')
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseover', handleMouseOver)
+    rafRef.current = requestAnimationFrame(animateRing)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseover', handleMouseOver)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
+  }, [])
+
+  return (
+    <>
+      <div
+        ref={dotRef}
+        className={`cursor-dot${hovering ? ' hovering' : ''}`}
+      />
+      <div
+        ref={ringRef}
+        className={`cursor-ring${hovering ? ' hovering' : ''}`}
+      />
+    </>
+  )
+}
+
+function AppContent() {
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <div className="App" style={{ minHeight: '100vh', position: 'relative' }}>
+      {/* Custom cursor */}
+      <CustomCursor />
+
+      {/* Aurora background blobs */}
+      <div className="aurora-blob aurora-blob-1" />
+      <div className="aurora-blob aurora-blob-2" />
+      <div className="aurora-blob aurora-blob-3" />
+
+      {/* Grid dot pattern */}
+      <div className="grid-pattern" />
+
       <Header scrollY={scrollY} />
       <Hero />
       <About />
@@ -30,6 +101,9 @@ function App() {
       <Reviews />
       <Contact />
 
+      {/* Theme Switcher */}
+      <ThemeSwitcher />
+
       {/* Floating WhatsApp button */}
       <motion.a
         href="https://wa.me/923314906039"
@@ -38,17 +112,17 @@ function App() {
         className="whatsapp-float"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        transition={{ delay: 1, type: 'spring', stiffness: 200 }}
-        whileHover={{ scale: 1.1 }}
+        transition={{ delay: 1.2, type: 'spring', stiffness: 200 }}
+        whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.95 }}
         style={{
           borderRadius: '50%',
-          background: '#25d366',
+          background: 'linear-gradient(135deg, #25d366, #128c7e)',
           color: '#fff',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 4px 20px rgba(37, 211, 102, 0.5)',
+          boxShadow: '0 6px 28px rgba(37, 211, 102, 0.55)',
           zIndex: 9999,
           textDecoration: 'none',
         }}
@@ -60,5 +134,12 @@ function App() {
   )
 }
 
-export default App
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  )
+}
 
+export default App

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiBriefcase, FiCalendar, FiMapPin, FiExternalLink } from 'react-icons/fi'
+import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi'
 
 const Experience = () => {
   const experiences = [
@@ -9,17 +9,17 @@ const Experience = () => {
       company: 'Euphoria XR',
       location: 'Remote',
       period: 'June 2024 – Present',
-      description: 'Building scalable web and mobile applications with React Native and Node.js. Delivering real-time systems, RESTful APIs, and secure authentication. Also developed a real-estate listing platform with NestJS and PostgreSQL on AWS.',
+      description: 'Building scalable web and mobile applications with React Native and Node.js. Delivering real-time systems, RESTful APIs, and secure authentication.',
       achievements: [
-        'Architected and implemented advanced mobile features using React Native and Node.js',
+        'Architected advanced mobile features using React Native and Node.js',
         'Designed real-time push notifications using Firebase Cloud Messaging',
         'Built chat module using Socket.io with real-time synchronization',
-        'Developed scalable event management system and RESTful APIs',
-        'Implemented OAuth and JWT based secure authentication; integrated Google, Apple and LinkedIn social logins',
-        'Implemented MongoDB geospatial features for location-based discovery',
-        'Developed scalable real-estate platform (Zameen.com-style): NestJS + PostgreSQL on AWS, secure admin portal for listing and user management'
+        'Implemented OAuth & JWT-based secure authentication with social logins',
+        'MongoDB geospatial features for location-based discovery',
+        'Developed scalable real-estate platform: NestJS + PostgreSQL on AWS',
       ],
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'NestJS', 'PostgreSQL', 'AWS', 'Socket.io', 'Firebase', 'OAuth', 'JWT']
+      technologies: ['React Native', 'Node.js', 'MongoDB', 'NestJS', 'PostgreSQL', 'AWS', 'Socket.io', 'Firebase', 'OAuth', 'JWT'],
+      color: '#ec4899',
     },
     {
       type: 'fulltime',
@@ -29,11 +29,12 @@ const Experience = () => {
       period: 'July 2023 – Aug 2024',
       description: 'Led development of scalable Job Posting platform with optimized UI and high-performance React interfaces.',
       achievements: [
-        'Led development of scalable Job Posting platform with optimized UI',
-        'Built Node.js RESTful APIs and high-performance React interfaces',
-        'Collaborated with team on debugging and new feature delivery'
+        'Built scalable Job Posting platform with optimized UI',
+        'Developed Node.js RESTful APIs and React interfaces',
+        'Collaborated on debugging and new feature delivery',
       ],
-      technologies: ['React', 'Node.js', 'RESTful APIs', 'JavaScript', 'HTML/CSS']
+      technologies: ['React', 'Node.js', 'RESTful APIs', 'JavaScript', 'HTML/CSS'],
+      color: '#6366f1',
     },
     {
       type: 'fulltime',
@@ -41,14 +42,15 @@ const Experience = () => {
       company: 'Skylinx Technologies',
       location: 'Remote',
       period: 'Jan 2022 – 2023',
-      description: 'Developed scalable React.js and Next.js applications for global clients with responsive UI and integrated APIs.',
+      description: 'Developed scalable React.js and Next.js applications for global clients.',
       achievements: [
-        'Developed scalable React.js and Next.js applications for global clients',
+        'Built React.js and Next.js apps for global clients',
         'Built responsive UI components and dashboards',
-        'Integrated APIs, authentication systems, and third-party services',
-        'Improved performance using lazy loading and code optimization'
+        'Integrated APIs, authentication, and third-party services',
+        'Performance optimization with lazy loading',
       ],
-      technologies: ['React', 'Next.js', 'JavaScript', 'RESTful APIs', 'HTML/CSS']
+      technologies: ['React', 'Next.js', 'JavaScript', 'RESTful APIs', 'HTML/CSS'],
+      color: '#8b5cf6',
     },
     {
       type: 'fulltime',
@@ -58,12 +60,12 @@ const Experience = () => {
       period: 'Jan 2021 – Dec 2021',
       description: 'Built full-stack applications using MERN stack including admin dashboards, SaaS platforms, and APIs.',
       achievements: [
-        'Built full-stack applications using MERN stack',
-        'Developed admin dashboards, SaaS platforms, and APIs',
+        'Built full-stack MERN applications',
+        'Developed admin dashboards and SaaS platforms',
         'Integrated payment gateways and external APIs',
-        'Optimized backend and frontend performance'
       ],
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JavaScript', 'RESTful APIs']
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JavaScript'],
+      color: '#f97316',
     },
     {
       type: 'freelance',
@@ -71,31 +73,21 @@ const Experience = () => {
       company: 'Web & Mobile Applications',
       location: 'Remote',
       period: 'Jan 2021 – June 2021',
-      description: 'Delivered custom web and mobile apps for international clients with end-to-end deployment and client delivery.',
+      description: 'Delivered custom web and mobile apps for international clients.',
       achievements: [
-        'Delivered custom web and mobile apps for international clients',
-        'Built React.js and Next.js web applications',
-        'Developed React Native mobile apps with API integrations',
-        'Managed deployment and client delivery lifecycle'
+        'Delivered React.js and Next.js web applications',
+        'React Native mobile apps with API integrations',
+        'Managed deployment and client delivery lifecycle',
       ],
-      technologies: ['React', 'React Native', 'Next.js', 'Node.js', 'JavaScript']
-    }
+      technologies: ['React', 'React Native', 'Next.js', 'Node.js', 'JavaScript'],
+      color: '#10b981',
+    },
   ]
-
-  const getIcon = (type) => {
-    return <FiBriefcase />
-  }
-
-  const getColor = (type) => {
-    if (type === 'upwork') return '#14a800'
-    if (type === 'freelance') return '#6366f1'
-    return '#ec4899'
-  }
 
   return (
     <section id="experience" className="section" style={{ position: 'relative' }}>
       <div className="glow" style={{ bottom: '20%', left: '-300px' }} />
-      
+
       <motion.h2
         className="section-title"
         initial={{ opacity: 0, y: 30 }}
@@ -105,207 +97,190 @@ const Experience = () => {
       >
         Work Experience
       </motion.h2>
+
+      <motion.div
+        className="section-divider"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+      />
+
       <motion.p
         className="section-subtitle"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
       >
         My professional journey and the projects I've worked on
       </motion.p>
 
-      <div className="experience-timeline" style={{
-        position: 'relative',
-        paddingLeft: '40px',
-        marginTop: '60px',
-      }}>
+      <div
+        className="experience-timeline"
+        style={{
+          position: 'relative',
+          paddingLeft: '40px',
+          marginTop: '60px',
+        }}
+      >
         {/* Timeline line */}
-        <div className="experience-timeline-line" style={{
-          position: 'absolute',
-          left: '20px',
-          top: 0,
-          bottom: 0,
-          width: '3px',
-          background: 'var(--gradient-1)',
-          borderRadius: '3px',
-        }} />
+        <motion.div
+          className="experience-timeline-line"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: 'easeInOut' }}
+          style={{
+            position: 'absolute',
+            left: '18px',
+            top: 0,
+            bottom: 0,
+            width: '3px',
+            background: 'var(--gradient-1)',
+            borderRadius: '3px',
+            transformOrigin: 'top',
+          }}
+        />
 
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '60px',
-        }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '55px' }}>
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              style={{
-                position: 'relative',
-              }}
+              transition={{ delay: index * 0.15, duration: 0.7 }}
+              style={{ position: 'relative' }}
             >
               {/* Timeline dot */}
-              <div className="experience-dot" style={{
-                position: 'absolute',
-                left: '-50px',
-                top: '10px',
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: `linear-gradient(135deg, ${getColor(exp.type)}, ${getColor(exp.type)}dd)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.2rem',
-                color: 'var(--white)',
-                boxShadow: `0 0 20px ${getColor(exp.type)}60`,
-                zIndex: 2,
-                border: '4px solid var(--dark)',
-              }}>
-                {getIcon(exp.type)}
-              </div>
-
-              <div className="card experience-content" style={{
-                padding: '40px',
-                marginLeft: '20px',
-              }}>
-                <div style={{
+              <motion.div
+                className="experience-dot"
+                whileInView={{ scale: [0, 1.3, 1] }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 + 0.2, duration: 0.5 }}
+                style={{
+                  position: 'absolute',
+                  left: '-52px',
+                  top: '12px',
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: `linear-gradient(135deg, ${exp.color}, ${exp.color}cc)`,
                   display: 'flex',
-                  alignItems: 'flex-start',
-                  justifyContent: 'space-between',
-                  flexWrap: 'wrap',
-                  gap: '20px',
-                  marginBottom: '25px',
-                }}>
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.1rem',
+                  color: 'var(--white)',
+                  boxShadow: `0 0 20px ${exp.color}70, 0 0 40px ${exp.color}30`,
+                  zIndex: 2,
+                  border: '4px solid var(--dark)',
+                }}
+              >
+                <FiBriefcase />
+              </motion.div>
+
+              <motion.div
+                className="card experience-content"
+                whileHover={{ y: -6 }}
+                style={{
+                  padding: '38px',
+                  marginLeft: '20px',
+                  borderLeft: `3px solid ${exp.color}30`,
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '16px',
+                    marginBottom: '22px',
+                  }}
+                >
                   <div>
-                    <h3 style={{
-                      fontSize: '1.6rem',
-                      fontWeight: 700,
-                      marginBottom: '8px',
-                      color: 'var(--light)',
-                    }}>
+                    <h3 style={{ fontSize: '1.55rem', fontWeight: 700, marginBottom: '8px' }}>
                       {exp.title}
                     </h3>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '15px',
-                      flexWrap: 'wrap',
-                      marginBottom: '15px',
-                    }}>
-                      <span style={{
-                        color: getColor(exp.type),
-                        fontWeight: 600,
-                        fontSize: '1.1rem',
-                      }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap', marginBottom: '10px' }}>
+                      <span style={{ color: exp.color, fontWeight: 700, fontSize: '1.05rem' }}>
                         {exp.company}
                       </span>
-                      <span style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '5px',
-                        color: 'var(--gray)',
-                        fontSize: '0.95rem',
-                      }}>
-                        <FiMapPin size={14} />
-                        {exp.location}
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '5px', color: 'var(--gray)', fontSize: '0.9rem' }}>
+                        <FiMapPin size={13} /> {exp.location}
                       </span>
                     </div>
                   </div>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    color: 'var(--gray)',
-                    fontSize: '0.95rem',
-                  }}>
-                    <FiCalendar size={16} />
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      background: `${exp.color}15`,
+                      border: `1px solid ${exp.color}30`,
+                      borderRadius: '20px',
+                      padding: '6px 16px',
+                      color: exp.color,
+                      fontSize: '0.88rem',
+                      fontWeight: 600,
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    <FiCalendar size={14} />
                     {exp.period}
                   </div>
                 </div>
 
-                <p style={{
-                  color: 'var(--gray)',
-                  lineHeight: 1.7,
-                  marginBottom: '25px',
-                  fontSize: '1.05rem',
-                }}>
+                <p style={{ color: 'var(--gray)', lineHeight: 1.75, marginBottom: '22px', fontSize: '1rem' }}>
                   {exp.description}
                 </p>
 
-                <div style={{
-                  marginBottom: '25px',
-                }}>
-                  <h4 style={{
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    marginBottom: '15px',
-                    color: 'var(--light)',
-                  }}>
-                    Key Achievements:
+                {/* Achievements */}
+                <div style={{ marginBottom: '22px' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '12px', color: 'var(--light)' }}>
+                    Key Achievements
                   </h4>
-                  <ul style={{
-                    listStyle: 'none',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '10px',
-                  }}>
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '12px',
-                        color: 'var(--gray)',
-                      }}>
-                        <span style={{
-                          color: getColor(exp.type),
-                          fontSize: '1.2rem',
-                          marginTop: '2px',
-                        }}>
-                          ✓
-                        </span>
-                        <span>{achievement}</span>
-                      </li>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
+                    {exp.achievements.map((ach, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 }}
+                        style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--gray)', fontSize: '0.95rem' }}
+                      >
+                        <span style={{ color: exp.color, fontSize: '1rem', marginTop: '2px', flexShrink: 0 }}>✦</span>
+                        <span>{ach}</span>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
 
-                <div>
-                  <h4 style={{
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    marginBottom: '15px',
-                    color: 'var(--light)',
-                  }}>
-                    Technologies Used:
-                  </h4>
-                  <div style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '10px',
-                  }}>
-                    {exp.technologies.map((tech, i) => (
-                      <span
-                        key={i}
-                        style={{
-                          padding: '8px 16px',
-                          background: `rgba(${exp.type === 'upwork' ? '20, 168, 0' : exp.type === 'freelance' ? '99, 102, 241' : '236, 72, 153'}, 0.1)`,
-                          border: `1px solid rgba(${exp.type === 'upwork' ? '20, 168, 0' : exp.type === 'freelance' ? '99, 102, 241' : '236, 72, 153'}, 0.3)`,
-                          borderRadius: '8px',
-                          fontSize: '0.9rem',
-                          color: getColor(exp.type),
-                          fontWeight: 500,
-                        }}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                {/* Tech tags */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  {exp.technologies.map((tech, i) => (
+                    <motion.span
+                      key={i}
+                      whileHover={{ y: -3, scale: 1.05 }}
+                      style={{
+                        padding: '5px 14px',
+                        background: `${exp.color}12`,
+                        border: `1px solid ${exp.color}30`,
+                        borderRadius: '20px',
+                        fontSize: '0.82rem',
+                        color: exp.color,
+                        fontWeight: 600,
+                        cursor: 'default',
+                        transition: 'all 0.2s ease',
+                      }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
@@ -315,4 +290,3 @@ const Experience = () => {
 }
 
 export default Experience
-
