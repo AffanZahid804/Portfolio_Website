@@ -711,7 +711,15 @@ body {
   }
 
   .hero-social-links {
+    align-items: center !important;
+  }
+
+  .hero-social-links > div {
     justify-content: center !important;
+  }
+
+  .scroll-indicator {
+    display: none !important;
   }
 
   .hero-image-column {

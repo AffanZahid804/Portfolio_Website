@@ -283,12 +283,13 @@ const Hero = () => {
             variants={itemVariants}
             style={{
               display: 'flex',
-              gap: '16px',
-              alignItems: 'center',
-              flexWrap: 'wrap',
+              flexDirection: 'column',
+              gap: '12px',
+              alignItems: 'inherit',
             }}
           >
-            <span style={{ color: 'var(--gray)', fontSize: '0.9rem' }}>Follow me:</span>
+            <span style={{ color: 'var(--gray)', fontSize: '0.9rem' }}>Follow me</span>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
             {socialLinks.map((s, i) => (
               <motion.a
                 key={i}
@@ -329,6 +330,7 @@ const Hero = () => {
                 {s.icon}
               </motion.a>
             ))}
+            </div>
           </motion.div>
         </motion.div>
 
@@ -524,8 +526,9 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — hidden on mobile */}
       <motion.div
+        className="scroll-indicator"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
