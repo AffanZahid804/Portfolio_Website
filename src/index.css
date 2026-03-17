@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 :root {
   --primary: #6366f1;
   --primary-dark: #4f46e5;
@@ -30,6 +42,15 @@ html {
   overflow-x: hidden;
   max-width: 100%;
   cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve mobile scrolling performance */
+@media (max-width: 1024px) {
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* ============ CUSTOM CURSOR ============ */
@@ -84,7 +105,6 @@ html {
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
-  will-change: transform;
   transform: translateZ(0);
 }
 
@@ -113,6 +133,14 @@ html {
   top: 40%;
   left: 40%;
   animation: blob-drift-3 22s ease-in-out infinite;
+}
+
+/* Disable heavy animations on mobile */
+@media (max-width: 1024px) {
+  .aurora-blob {
+    animation: none !important;
+    opacity: 0.4;
+  }
 }
 
 @keyframes blob-drift-1 {
@@ -146,6 +174,14 @@ html {
   z-index: 0;
   opacity: 0.6;
   transform: translateZ(0);
+}
+
+
+@media (max-width: 1024px) {
+  .grid-pattern {
+    background-size: 60px 60px;
+    opacity: 0.3;
+  }
 }
 
 body {
@@ -195,6 +231,14 @@ body {
   position: relative;
   overflow-x: hidden;
   z-index: 1;
+  contain: layout style paint;
+}
+
+/* Optimize sections on mobile */
+@media (max-width: 1024px) {
+  .section {
+    contain: layout style;
+  }
 }
 
 /* ============ SHIMMER SECTION TITLE ============ */
@@ -217,12 +261,19 @@ body {
   background-clip: text;
   letter-spacing: -1px;
   animation: shimmer-text 6s linear infinite;
-  will-change: background-position;
 }
 
 @keyframes shimmer-text {
   0% { background-position: 0% center; }
   100% { background-position: -250% center; }
+}
+
+/* Disable shimmer on mobile for performance */
+@media (max-width: 1024px) {
+  .section-title {
+    animation: none;
+    background-position: 0% center;
+  }
 }
 
 .section-subtitle {
@@ -314,7 +365,6 @@ body {
   border: 1px solid rgba(var(--glow-rgb), 0.12);
   position: relative;
   overflow: hidden;
-  will-change: transform;
 }
 
 .card::before {
@@ -340,6 +390,18 @@ body {
   transform: scaleX(1);
 }
 
+/* Disable hover effects on mobile for performance */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(var(--glow-rgb), 0.12);
+  }
+  .card:hover::before {
+    transform: scaleX(0);
+  }
+}
+
 /* ============ GLOW BLOB IN SECTIONS ============ */
 .glow {
   position: absolute;
@@ -357,6 +419,15 @@ body {
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 0.9; }
+}
+
+
+@media (max-width: 1024px) {
+  .glow {
+    animation: none;
+    opacity: 0.3 !important;
+    filter: blur(40px);
+  }
 }
 
 /* ============ FLOATING ANIMATION ============ */
@@ -447,8 +518,15 @@ body {
   animation: particle-drift var(--duration, 16s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
   color: var(--primary);
-  will-change: transform;
   transform: translateZ(0);
+}
+
+/* Disable floating tech icons animation on mobile */
+@media (max-width: 1024px) {
+  .tech-float-icon {
+    animation: none !important;
+    opacity: 0.03;
+  }
 }
 
 /* ============ STAT NUMBER GLOW ============ */
@@ -501,7 +579,6 @@ body {
   display: flex;
   gap: 20px;
   width: max-content;
-  will-change: transform;
 }
 
 .marquee-left {
@@ -599,6 +676,22 @@ body {
   .marquee-skill-name {
     font-size: 0.92rem;
   }
+
+  /* Disable hover effects on mobile */
+  .marquee-skill-card:hover {
+    transform: none;
+    border-color: rgba(var(--glow-rgb), 0.12);
+    box-shadow: none;
+  }
+
+  .marquee-skill-card:hover .marquee-skill-icon {
+    transform: none;
+    filter: none;
+  }
+
+  .marquee-skill-card:hover .marquee-skill-glow {
+    opacity: 0;
+  }
 }
 
 /* ============ PROGRESS BAR SHIMMER ============ */
@@ -692,6 +785,7 @@ body {
     width: 300px !important;
     height: 300px !important;
     max-width: 70vw !important;
+    animation: none !important;
   }
 
   .hero-profile img {
@@ -746,8 +840,8 @@ body {
     gap: 0;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-top: 1px solid rgba(var(--glow-rgb), 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     max-height: calc(100vh - 70px);
@@ -770,7 +864,8 @@ body {
   }
 
   .aurora-blob {
-    opacity: 0.6;
+    opacity: 0.4;
+    animation: none !important;
   }
 }
 

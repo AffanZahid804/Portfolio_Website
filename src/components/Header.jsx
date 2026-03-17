@@ -5,6 +5,7 @@ import { FiMenu, FiX } from 'react-icons/fi'
 const Header = ({ scrollY }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [isMobile, setIsMobile] = useState(false)
 
   const navItems = [
     { name: 'Home', id: 'home' },
@@ -17,17 +18,33 @@ const Header = ({ scrollY }) => {
   ]
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200
-      for (const item of navItems) {
-        const el = document.getElementById(item.id)
-        if (el) {
-          const { offsetTop, offsetHeight } = el
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(item.id)
-            break
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 200
+          for (const item of navItems) {
+            const el = document.getElementById(item.id)
+            if (el) {
+              const { offsetTop, offsetHeight } = el
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(item.id)
+                break
+              }
+            }
           }
-        }
+          ticking = false
+        })
+        ticking = true
       }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -59,8 +76,8 @@ const Header = ({ scrollY }) => {
         background: scrolled
           ? 'rgba(5, 5, 15, 0.96)'
           : 'rgba(5, 5, 15, 0.7)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        backdropFilter: isMobile ? 'none' : 'blur(16px)',
+        WebkitBackdropFilter: isMobile ? 'none' : 'blur(16px)',
         transition: 'all 0.4s ease',
         borderBottom: scrolled
           ? '1px solid rgba(var(--glow-rgb), 0.15)'

@@ -59,8 +59,18 @@ const useTypingEffect = (texts, typingSpeed = 90, deletingSpeed = 45, pauseTime 
 
 const Hero = () => {
   const [imageError, setImageError] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const typedRole = useTypingEffect(roles)
   const profileImage = `${import.meta.env.BASE_URL}images/affan.jpeg`
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const socialLinks = [
     {
@@ -117,7 +127,7 @@ const Hero = () => {
       }}
     >
       {/* Floating tech icons background */}
-      {techIcons.map((t, i) => (
+      {!isMobile && techIcons.map((t, i) => (
         <div
           key={i}
           className="tech-float-icon"
@@ -347,64 +357,68 @@ const Hero = () => {
             position: 'relative',
           }}
         >
-          {/* Outer orbit rings */}
-          <div
-            style={{
-              position: 'absolute',
-              width: '560px',
-              height: '560px',
-              borderRadius: '50%',
-              border: '1px dashed rgba(var(--glow-rgb), 0.2)',
-              animation: 'spin-ring 25s linear infinite',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            {/* Orbit dot 1 */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '-6px',
-                left: '50%',
-                width: '12px',
-                height: '12px',
-                borderRadius: '50%',
-                background: 'var(--primary)',
-                boxShadow: '0 0 16px rgba(var(--glow-rgb), 0.9)',
-                transform: 'translateX(-50%)',
-              }}
-            />
-          </div>
+          {/* Outer orbit rings - only on desktop */}
+          {!isMobile && (
+            <>
+              <div
+                style={{
+                  position: 'absolute',
+                  width: '560px',
+                  height: '560px',
+                  borderRadius: '50%',
+                  border: '1px dashed rgba(var(--glow-rgb), 0.2)',
+                  animation: 'spin-ring 25s linear infinite',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                }}
+              >
+                {/* Orbit dot 1 */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '-6px',
+                    left: '50%',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: 'var(--primary)',
+                    boxShadow: '0 0 16px rgba(var(--glow-rgb), 0.9)',
+                    transform: 'translateX(-50%)',
+                  }}
+                />
+              </div>
 
-          <div
-            style={{
-              position: 'absolute',
-              width: '620px',
-              height: '620px',
-              borderRadius: '50%',
-              border: '1px dashed rgba(var(--glow-rgb), 0.12)',
-              animation: 'spin-ring-reverse 35s linear infinite',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            {/* Orbit dot 2 */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '-6px',
-                left: '50%',
-                width: '10px',
-                height: '10px',
-                borderRadius: '50%',
-                background: 'var(--accent)',
-                boxShadow: '0 0 12px rgba(var(--glow-rgb), 0.8)',
-                transform: 'translateX(-50%)',
-              }}
-            />
-          </div>
+              <div
+                style={{
+                  position: 'absolute',
+                  width: '620px',
+                  height: '620px',
+                  borderRadius: '50%',
+                  border: '1px dashed rgba(var(--glow-rgb), 0.12)',
+                  animation: 'spin-ring-reverse 35s linear infinite',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                }}
+              >
+                {/* Orbit dot 2 */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '-6px',
+                    left: '50%',
+                    width: '10px',
+                    height: '10px',
+                    borderRadius: '50%',
+                    background: 'var(--accent)',
+                    boxShadow: '0 0 12px rgba(var(--glow-rgb), 0.8)',
+                    transform: 'translateX(-50%)',
+                  }}
+                />
+              </div>
+            </>
+          )}
 
           {/* Profile circle */}
           <div
@@ -422,11 +436,10 @@ const Hero = () => {
                 0 0 50px rgba(var(--glow-rgb), 0.35),
                 0 25px 80px rgba(var(--glow-rgb), 0.25)
               `,
-              animation: 'float-slow 7s ease-in-out infinite',
+              animation: isMobile ? 'none' : 'float-slow 7s ease-in-out infinite',
               position: 'relative',
               overflow: 'hidden',
               flexShrink: 0,
-              willChange: 'transform',
             }}
           >
             {/* Inner circle */}

@@ -19,8 +19,20 @@ const CustomCursor = () => {
   const ringPosRef = useRef({ x: 0, y: 0 })
   const rafRef = useRef(null)
   const [hovering, setHovering] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    
+    const checkMobile = () => {
+      const mobile = window.matchMedia('(hover: none)').matches || 
+                     window.matchMedia('(pointer: coarse)').matches ||
+                     window.innerWidth < 1024
+      setIsMobile(mobile)
+      return mobile
+    }
+
+    if (checkMobile()) return // Don't initialize cursor on mobile
+
     const handleMouseMove = (e) => {
       posRef.current = { x: e.clientX, y: e.clientY }
       if (dotRef.current) {
@@ -45,8 +57,8 @@ const CustomCursor = () => {
       setHovering(style.cursor === 'pointer')
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mouseover', handleMouseOver)
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    window.addEventListener('mouseover', handleMouseOver, { passive: true })
     rafRef.current = requestAnimationFrame(animateRing)
 
     return () => {
@@ -55,6 +67,8 @@ const CustomCursor = () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
   }, [])
+
+  if (isMobile) return null // Don't render on mobile
 
   return (
     <>
@@ -74,7 +88,16 @@ function AppContent() {
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import { FiExternalLink, FiArrowRight } from 'react-icons/fi'
 import dentalicImg from '../assets/images/assets/image.png'
 import hrImg from '../assets/images/assets/image-copy.png'
@@ -8,6 +9,17 @@ import reveriaImg from '../assets/images/assets/reveria.png'
 import instantBoxesImg from '../assets/images/assets/instant-custom-boxes.png'
 
 const Projects = () => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const projects = [
     {
       title: 'Dentalic',
@@ -127,7 +139,7 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.7 }}
-            whileHover={{ y: -16, scale: 1.02 }}
+            whileHover={isMobile ? {} : { y: -16, scale: 1.02 }}
             style={{
               padding: 0,
               overflow: 'hidden',
@@ -224,7 +236,7 @@ const Projects = () => {
                 {project.tags.map((tag, i) => (
                   <motion.span
                     key={i}
-                    whileHover={{ y: -3, scale: 1.05 }}
+                    whileHover={isMobile ? {} : { y: -3, scale: 1.05 }}
                     style={{
                       padding: '5px 13px',
                       background: `${project.accentColor}14`,
@@ -248,7 +260,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
-                  whileHover={{ scale: 1.04 }}
+                  whileHover={isMobile ? {} : { scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   style={{
                     display: 'flex',

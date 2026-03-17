@@ -1,10 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme, themes } from '../context/ThemeContext'
 
 const ThemeSwitcher = () => {
   const { currentTheme, setCurrentTheme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <div style={{
@@ -25,8 +35,8 @@ const ThemeSwitcher = () => {
               bottom: '70px',
               left: 0,
               background: 'rgba(10, 10, 20, 0.97)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
+              backdropFilter: isMobile ? 'none' : 'blur(16px)',
+              WebkitBackdropFilter: isMobile ? 'none' : 'blur(16px)',
               border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: '20px',
               padding: '20px',
@@ -51,7 +61,7 @@ const ThemeSwitcher = () => {
               <motion.button
                 key={key}
                 onClick={() => { setCurrentTheme(key); setIsOpen(false) }}
-                whileHover={{ x: 6, scale: 1.02 }}
+                whileHover={isMobile ? {} : { x: 6, scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
                   display: 'flex',
@@ -98,7 +108,7 @@ const ThemeSwitcher = () => {
 
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.12 }}
+        whileHover={isMobile ? {} : { scale: 1.12 }}
         whileTap={{ scale: 0.95 }}
         animate={{ rotate: isOpen ? 180 : 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
