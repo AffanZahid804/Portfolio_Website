@@ -241,7 +241,7 @@ const Hero = () => {
               maxWidth: '580px',
             }}
           >
-            Full Stack & Mobile Developer with 4+ years building scalable web and mobile
+            Full Stack & Mobile Developer with 5+ years building scalable web and mobile
             applications. Expert in React, Node.js, React Native, and cloud services.
             Available for projects on{' '}
             <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Upwork</span>.
@@ -505,7 +505,7 @@ const Hero = () => {
             <span style={{ fontSize: '1.4rem' }}>⚡</span>
             <div>
               <div style={{ fontSize: '0.75rem', color: 'var(--gray)' }}>Experience</div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--light)' }}>4+ Years</div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--light)' }}>5+ Years</div>
             </div>
           </motion.div>
 
