@@ -5,6 +5,7 @@ import {
   SiReact, SiNodedotjs, SiJavascript,
   SiMongodb, SiTypescript, SiAmazonwebservices
 } from 'react-icons/si'
+import profileImage from '../assets/images/profile.jpeg'
 
 const roles = [
   'Software Engineer',
@@ -61,7 +62,6 @@ const Hero = () => {
   const [imageError, setImageError] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const typedRole = useTypingEffect(roles)
-  const profileImage = `${import.meta.env.BASE_URL}images/affan.jpeg`
 
   useEffect(() => {
     const checkMobile = () => {
