@@ -19,7 +19,7 @@ const Experience = () => {
         'Delivered a full-stack real-estate listing platform (similar to Zameen.com) using NestJS and PostgreSQL on AWS, including a secure admin portal',
       ],
       technologies: ['React', 'React Native', 'Node.js', 'NestJS', 'PostgreSQL', 'MongoDB', 'AWS', 'Socket.io'],
-      color: '#ec4899',
+      color: '#3b82f6',
     },
     {
       type: 'fulltime',
@@ -35,7 +35,7 @@ const Experience = () => {
         'Collaborated cross-functionally with product and design teams to deliver features on schedule',
       ],
       technologies: ['React.js', 'Node.js', 'REST APIs', 'JavaScript'],
-      color: '#6366f1',
+      color: '#64748b',
     },
     {
       type: 'fulltime',
@@ -51,7 +51,7 @@ const Experience = () => {
         'Optimized application performance using lazy loading, code splitting, and asset optimization',
       ],
       technologies: ['React.js', 'Next.js', 'JavaScript', 'REST APIs', 'HTML/CSS'],
-      color: '#8b5cf6',
+      color: '#0e7490',
     },
     {
       type: 'fulltime',
@@ -68,7 +68,7 @@ const Experience = () => {
         'Built React.js, Next.js, and React Native solutions with full deployment and handoff',
       ],
       technologies: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'React Native', 'Next.js', 'Stripe', 'PayPal'],
-      color: '#f97316',
+      color: '#57534e',
     },
   ]
 

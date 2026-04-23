@@ -12,7 +12,7 @@ const Reviews = () => {
       rating: 5,
       review: 'Exceptional work! Affan delivered exactly what we needed and exceeded our expectations. The project was completed on time and the code quality was outstanding. Highly recommended for any React/Node.js project.',
       project: '360 HR website',
-      color: '#6366f1',
+      color: '#2563eb',
     },
     {
       name: 'Muhammad Ali',
@@ -23,7 +23,7 @@ const Reviews = () => {
       review: 'Working with Affan was an excellent experience. Very professional, responsive, and skilled. The dashboard he built is exactly what we envisioned and more. Will definitely work with him again.',
       project: 'Euphoria XR',
       projectLabel: 'Company',
-      color: '#ec4899',
+      color: '#0369a1',
     },
     {
       name: 'Franklin V.',
@@ -34,7 +34,7 @@ const Reviews = () => {
       review: 'Outstanding developer! Affan transformed our website into a modern, fast, and user-friendly platform. Our conversion rates increased significantly. His attention to detail is remarkable.',
       project: 'T-Mobile',
       projectLabel: 'Company',
-      color: '#10b981',
+      color: '#0f766e',
     },
   ]
 
@@ -145,7 +145,7 @@ const Reviews = () => {
                 >
                   <FiStar
                     size={18}
-                    style={{ fill: '#fbbf24', color: '#fbbf24', filter: 'drop-shadow(0 0 4px #fbbf2480)' }}
+                    style={{ fill: '#ca8a04', color: '#ca8a04', filter: 'drop-shadow(0 0 4px rgba(202, 138, 4, 0.35))' }}
                   />
                 </motion.div>
               ))}

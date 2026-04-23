@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { FiSliders } from 'react-icons/fi'
 import { useTheme, themes } from '../context/ThemeContext'
 
 const ThemeSwitcher = () => {
@@ -55,7 +56,7 @@ const ThemeSwitcher = () => {
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
             }}>
-              Color Theme
+              Appearance
             </p>
             {Object.entries(themes).map(([key, t]) => (
               <motion.button
@@ -90,7 +91,7 @@ const ThemeSwitcher = () => {
                   boxShadow: currentTheme === key ? `0 0 14px rgba(${t.glowRgb}, 0.8)` : 'none',
                   transition: 'box-shadow 0.3s ease',
                 }} />
-                <span>{t.emoji} {t.name}</span>
+                <span>{t.name}</span>
                 {currentTheme === key && (
                   <motion.span
                     initial={{ scale: 0 }}
@@ -128,9 +129,9 @@ const ThemeSwitcher = () => {
           position: 'relative',
           zIndex: 1,
         }}
-        aria-label="Switch color theme"
+        aria-label="Switch appearance theme"
       >
-        🎨
+        <FiSliders size={22} />
       </motion.button>
     </div>
   )

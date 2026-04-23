@@ -143,8 +143,8 @@ const Skills = () => {
               width: '10px',
               height: '10px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-              boxShadow: '0 0 12px #6366f180',
+              background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+              boxShadow: '0 0 12px rgba(var(--glow-rgb), 0.35)',
             }} />
             <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--gray)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Frontend & Mobile
@@ -171,8 +171,8 @@ const Skills = () => {
               width: '10px',
               height: '10px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
-              boxShadow: '0 0 12px #8b5cf680',
+              background: 'linear-gradient(135deg, var(--secondary), var(--accent))',
+              boxShadow: '0 0 12px rgba(var(--glow-rgb), 0.28)',
             }} />
             <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--gray)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Backend & Databases
@@ -199,8 +199,8 @@ const Skills = () => {
               width: '10px',
               height: '10px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #ec4899, #f59e0b)',
-              boxShadow: '0 0 12px #ec489980',
+              background: 'linear-gradient(135deg, var(--accent), var(--primary-dark))',
+              boxShadow: '0 0 12px rgba(var(--glow-rgb), 0.22)',
             }} />
             <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--gray)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Cloud & DevOps

@@ -28,8 +28,8 @@ const Projects = () => {
       tags: ['Digital Health', 'Web App', 'SaaS'],
       link: 'https://mongid.com/en/dentalic',
       featured: true,
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      accentColor: '#667eea',
+      gradient: 'linear-gradient(135deg, #1e293b 0%, #475569 100%)',
+      accentColor: '#64748b',
     },
     {
       title: '360HR',
@@ -39,8 +39,8 @@ const Projects = () => {
       tags: ['HR & SaaS', 'React', 'Node.js', 'Cloud'],
       link: 'https://360hr.cloud/',
       featured: true,
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      accentColor: '#4facfe',
+      gradient: 'linear-gradient(135deg, #1e40af 0%, #2563eb 100%)',
+      accentColor: '#3b82f6',
     },
     {
       title: 'Bitrix24 Tasks & Projects',
@@ -59,8 +59,8 @@ const Projects = () => {
       tags: ['Telecom & Digital', 'Enterprise'],
       link: 'https://www.t-mobile.com/',
       featured: false,
-      gradient: 'linear-gradient(135deg, #e20074 0%, #6c1a8c 100%)',
-      accentColor: '#e20074',
+      gradient: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)',
+      accentColor: '#4338ca',
     },
     {
       title: 'French Riviera Travel',
@@ -70,8 +70,8 @@ const Projects = () => {
       tags: ['Travel & Tourism', 'Web Platform'],
       link: 'https://frenchriviera.travel/',
       featured: false,
-      gradient: 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)',
-      accentColor: '#0ea5e9',
+      gradient: 'linear-gradient(135deg, #0c4a6e 0%, #155e75 100%)',
+      accentColor: '#0891b2',
     },
     {
       title: 'Instant Custom Boxes',
@@ -80,8 +80,8 @@ const Projects = () => {
       tags: ['Packaging & E-Commerce', 'Web App'],
       link: 'https://www.instantcustomboxes.com/',
       featured: true,
-      gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      accentColor: '#fa709a',
+      gradient: 'linear-gradient(135deg, #44403c 0%, #57534e 100%)',
+      accentColor: '#78716c',
     },
   ]
 

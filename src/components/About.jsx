@@ -7,19 +7,19 @@ const About = () => {
       icon: <FiCode />,
       title: 'Clean Code',
       description: 'Writing maintainable, scalable code following industry best practices and SOLID principles',
-      color: '#6366f1',
+      color: '#2563eb',
     },
     {
       icon: <FiLayers />,
       title: 'Modern Stack',
       description: 'Using cutting-edge technologies and frameworks for optimal performance and user experience',
-      color: '#8b5cf6',
+      color: '#64748b',
     },
     {
       icon: <FiTrendingUp />,
       title: 'Performance',
       description: 'Optimized applications that load fast, run smoothly, and scale efficiently',
-      color: '#ec4899',
+      color: '#0369a1',
     },
   ]
 
