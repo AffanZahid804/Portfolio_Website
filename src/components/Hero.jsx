@@ -6,13 +6,14 @@ import {
   SiMongodb, SiTypescript, SiAmazonwebservices
 } from 'react-icons/si'
 import profileImage from '../assets/images/profile.jpeg'
+import { CV_CACHE_BUST, CV_PATH } from '../cvAsset'
 
 const roles = [
   'Software Engineer',
-  'Full Stack Developer',
-  'React Specialist',
+  'MERN Stack Developer',
   'Mobile App Developer',
-  'Node.js Expert',
+  'Full Stack Developer',
+  'React & Node.js Developer',
 ]
 
 const techIcons = [
@@ -241,9 +242,9 @@ const Hero = () => {
               maxWidth: '580px',
             }}
           >
-            Full Stack & Mobile Developer with 5+ years building scalable web and mobile
-            applications. Expert in React, Node.js, React Native, and cloud services.
-            Available for projects on{' '}
+            Software Engineer with 3+ years building scalable web and mobile applications
+            across the MERN stack, NestJS, and cloud (AWS, Firebase). Strong focus on clean
+            architecture, performance, and maintainable production systems. Available for projects on{' '}
             <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Upwork</span>.
           </motion.p>
 
@@ -275,9 +276,9 @@ const Hero = () => {
               <FiMail /> Get In Touch
             </motion.a>
             <motion.a
-              href={`${import.meta.env.BASE_URL}AffanResume-Dev.pdf`}
+              href={`${import.meta.env.BASE_URL}${CV_PATH}?v=${CV_CACHE_BUST}`}
               className="btn btn-outline"
-              download
+              download="Affan-Zahid-CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -505,7 +506,7 @@ const Hero = () => {
             <span style={{ fontSize: '1.4rem' }}>⚡</span>
             <div>
               <div style={{ fontSize: '0.75rem', color: 'var(--gray)' }}>Experience</div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--light)' }}>5+ Years</div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--light)' }}>3+ Years</div>
             </div>
           </motion.div>
 

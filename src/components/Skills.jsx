@@ -1,29 +1,30 @@
 import { motion } from 'framer-motion'
 import {
-  SiReact, SiJavascript, SiNodedotjs, SiPython,
-  SiHtml5, SiCss3, SiMongodb, SiPostgresql,
+  SiReact, SiJavascript, SiNodedotjs, SiPython, SiTypescript,
+  SiTailwindcss, SiMongodb, SiPostgresql,
   SiGit, SiFirebase, SiNextdotjs, SiExpress,
-  SiDjango, SiAmazonwebservices, SiSocketdotio, SiNestjs
+  SiAmazonwebservices, SiSocketdotio, SiNestjs, SiDocker, SiSupabase,
 } from 'react-icons/si'
 import { FaReact } from 'react-icons/fa'
 
 const allSkills = [
   { name: 'React', icon: <SiReact />, color: '#61dafb' },
   { name: 'React Native', icon: <FaReact />, color: '#61dafb' },
-  { name: 'JavaScript', icon: <SiJavascript />, color: '#f7df1e' },
   { name: 'Next.js', icon: <SiNextdotjs />, color: '#ffffff' },
-  { name: 'HTML5', icon: <SiHtml5 />, color: '#e34f26' },
-  { name: 'CSS3', icon: <SiCss3 />, color: '#1572b6' },
+  { name: 'JavaScript', icon: <SiJavascript />, color: '#f7df1e' },
+  { name: 'TypeScript', icon: <SiTypescript />, color: '#3178c6' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06b6d4' },
   { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933' },
   { name: 'NestJS', icon: <SiNestjs />, color: '#E0234E' },
   { name: 'Express', icon: <SiExpress />, color: '#94a3b8' },
   { name: 'Python', icon: <SiPython />, color: '#3776ab' },
-  { name: 'Django', icon: <SiDjango />, color: '#44b78b' },
   { name: 'MongoDB', icon: <SiMongodb />, color: '#47a248' },
   { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791' },
-  { name: 'Socket.io', icon: <SiSocketdotio />, color: '#94a3b8' },
   { name: 'Firebase', icon: <SiFirebase />, color: '#ffca28' },
+  { name: 'Supabase', icon: <SiSupabase />, color: '#3ecf8e' },
+  { name: 'Socket.io', icon: <SiSocketdotio />, color: '#94a3b8' },
   { name: 'AWS', icon: <SiAmazonwebservices />, color: '#ff9900' },
+  { name: 'Docker', icon: <SiDocker />, color: '#2496ed' },
   { name: 'Git', icon: <SiGit />, color: '#f05032' },
 ]
 
@@ -174,7 +175,7 @@ const Skills = () => {
               boxShadow: '0 0 12px #8b5cf680',
             }} />
             <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--gray)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Backend & APIs
+              Backend & Databases
             </span>
           </motion.div>
           <MarqueeRow skills={row2} direction="right" speed={32} />

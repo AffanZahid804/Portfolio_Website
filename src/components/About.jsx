@@ -26,7 +26,7 @@ const About = () => {
   const stats = [
     { icon: <FiBriefcase />, number: '10+', label: 'Projects Worked On' },
     { icon: <FiUsers />, number: '5+', label: 'Happy Clients' },
-    { icon: <FiAward />, number: '4+', label: 'Years Experience' },
+    { icon: <FiAward />, number: '3+', label: 'Years Experience' },
   ]
 
   const containerVariants = {
@@ -111,9 +111,9 @@ const About = () => {
           </motion.h3>
 
           {[
-            `I'm a Software Engineer based in Lahore, Pakistan, with extensive experience in React.js, React Native, Node.js, Next.js, NestJS, and modern JavaScript. I specialize in building scalable, high-performance web and mobile applications, designing real-time systems, and developing robust RESTful APIs.`,
-            <>Currently, I work at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer, where I lead development of enterprise-grade mobile and web applications. I architect scalable solutions, optimize performance across platforms, integrate cloud services (AWS), and ensure maintainable modular codebases.</>,
-            <>Previously worked at <strong style={{ color: 'var(--primary)' }}>360HR</strong>, <strong style={{ color: 'var(--primary)' }}>Skylinx Technologies</strong>, and <strong style={{ color: 'var(--primary)' }}>OopTech</strong>. Available for freelance on <strong style={{ color: 'var(--primary)' }}>Upwork</strong>.</>,
+            `I'm a results-driven Software Engineer based in Lahore, Pakistan, with about three years of experience building scalable web and mobile applications. I focus on clean architecture, production-ready systems, and the MERN stack alongside NestJS, PostgreSQL, MongoDB, and AWS.`,
+            <>I ship end-to-end solutions—SaaS platforms, real-time apps, and backend services—including geolocation and discovery features, Socket.io chat, and RESTful APIs for international clients.</>,
+            <>Currently at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer. Previously at <strong style={{ color: 'var(--primary)' }}>360HR</strong>, <strong style={{ color: 'var(--primary)' }}>Skylinx Technologies</strong>, and <strong style={{ color: 'var(--primary)' }}>OOP Technologies</strong>. Also available for freelance work on <strong style={{ color: 'var(--primary)' }}>Upwork</strong>.</>,
           ].map((text, i) => (
             <motion.p
               key={i}

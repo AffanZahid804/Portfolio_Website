@@ -33,7 +33,8 @@ const Projects = () => {
     },
     {
       title: '360HR',
-      description: 'Comprehensive cloud-based HR management system—from employee onboarding to payroll. Boost productivity, improve engagement, and simplify HR tasks.',
+      description:
+        'Enterprise-grade job portal and recruitment platform—job posting workflows, applicant tracking, and analytics dashboards for teams hiring at scale.',
       image: hrImg,
       tags: ['HR & SaaS', 'React', 'Node.js', 'Cloud'],
       link: 'https://360hr.cloud/',
@@ -63,7 +64,8 @@ const Projects = () => {
     },
     {
       title: 'French Riviera Travel',
-      description: "Premier online travel platform for the French Riviera—curated guides and booking resources for your perfect Mediterranean getaway along the Côte d'Azur.",
+      description:
+        'Travel and experience discovery platform with location-based exploration, curated listings, and smooth user interaction—built for performance, usability, and content management.',
       image: reveriaImg,
       tags: ['Travel & Tourism', 'Web Platform'],
       link: 'https://frenchriviera.travel/',
