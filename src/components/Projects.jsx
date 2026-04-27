@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { FiExternalLink, FiArrowRight } from 'react-icons/fi'
+import SectionMeta from './SectionMeta'
 import dentalicImg from '../assets/images/assets/image.png'
 import hrImg from '../assets/images/assets/image-copy.png'
 import bitrixImg from '../assets/images/assets/bitrix.png'
@@ -87,14 +88,10 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section" style={{ position: 'relative' }}>
-      <div
-        className="glow"
-        style={{
-          top: '10%',
-          right: '-300px',
-          background: 'radial-gradient(circle, rgba(var(--glow-rgb), 0.2) 0%, transparent 70%)',
-        }}
-      />
+      <div className="section-num">04</div>
+      <div className="glow" style={{ top: '10%', right: '-300px', background: 'radial-gradient(circle,rgba(var(--glow-rgb),0.2) 0%,transparent 70%)' }} />
+
+      <SectionMeta label="04 — Projects" />
 
       <motion.h2
         className="section-title"

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SectionMeta from './SectionMeta'
 import {
   SiReact, SiJavascript, SiNodedotjs, SiPython, SiTypescript,
   SiTailwindcss, SiMongodb, SiPostgresql,
@@ -67,22 +68,11 @@ const MarqueeRow = ({ skills, direction = 'left', speed = 30 }) => {
 const Skills = () => {
   return (
     <section id="skills" className="section" style={{ position: 'relative' }}>
-      <div
-        className="glow"
-        style={{
-          top: '20%',
-          right: '-300px',
-          background: 'radial-gradient(circle, rgba(var(--glow-rgb), 0.25) 0%, transparent 70%)',
-        }}
-      />
-      <div
-        className="glow"
-        style={{
-          bottom: '10%',
-          left: '-300px',
-          background: 'radial-gradient(circle, rgba(var(--glow-rgb), 0.15) 0%, transparent 70%)',
-        }}
-      />
+      <div className="section-num">02</div>
+      <div className="glow" style={{ top: '20%', right: '-300px', background: 'radial-gradient(circle,rgba(var(--glow-rgb),0.25) 0%,transparent 70%)' }} />
+      <div className="glow" style={{ bottom: '10%', left: '-300px', background: 'radial-gradient(circle,rgba(var(--glow-rgb),0.15) 0%,transparent 70%)' }} />
+
+      <SectionMeta label="02 — Skills" />
 
       <motion.h2
         className="section-title"

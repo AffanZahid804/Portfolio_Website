@@ -74,8 +74,8 @@ const Header = ({ scrollY }) => {
         right: 0,
         zIndex: 1000,
         background: scrolled
-          ? 'rgba(5, 5, 15, 0.96)'
-          : 'rgba(5, 5, 15, 0.7)',
+          ? 'rgba(8, 8, 8, 0.97)'
+          : 'rgba(8, 8, 8, 0.6)',
         backdropFilter: isMobile ? 'none' : 'blur(16px)',
         WebkitBackdropFilter: isMobile ? 'none' : 'blur(16px)',
         transition: 'all 0.4s ease',

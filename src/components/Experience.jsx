@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi'
+import SectionMeta from './SectionMeta'
 
 const Experience = () => {
   const experiences = [
@@ -74,7 +75,10 @@ const Experience = () => {
 
   return (
     <section id="experience" className="section" style={{ position: 'relative' }}>
+      <div className="section-num">03</div>
       <div className="glow" style={{ bottom: '20%', left: '-300px' }} />
+
+      <SectionMeta label="03 — Experience" />
 
       <motion.h2
         className="section-title"

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import { SiWhatsapp } from 'react-icons/si'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -10,6 +10,7 @@ import Projects from './components/Projects'
 import Reviews from './components/Reviews'
 import Contact from './components/Contact'
 import ThemeSwitcher from './components/ThemeSwitcher'
+import Loader from './components/Loader'
 import { ThemeProvider } from './context/ThemeContext'
 
 const CustomCursor = () => {
@@ -86,6 +87,9 @@ const CustomCursor = () => {
 
 function AppContent() {
   const [scrollY, setScrollY] = useState(0)
+  const [loaderDone, setLoaderDone] = useState(false)
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
 
   useEffect(() => {
     let ticking = false
@@ -103,9 +107,26 @@ function AppContent() {
   }, [])
 
   return (
+    <>
+      {/* Intro loader — renders over everything, wipes up when done */}
+      <AnimatePresence>
+        {!loaderDone && (
+          <Loader key="loader" onComplete={() => setLoaderDone(true)} />
+        )}
+      </AnimatePresence>
+
     <div className="App" style={{ minHeight: '100vh', position: 'relative' }}>
+      {/* Scroll progress bar */}
+      <motion.div
+        className="scroll-progress-bar"
+        style={{ scaleX }}
+      />
+
       {/* Custom cursor */}
       <CustomCursor />
+
+      {/* Film grain noise overlay */}
+      <div className="noise-overlay" />
 
       {/* Aurora background blobs */}
       <div className="aurora-blob aurora-blob-1" />
@@ -154,6 +175,7 @@ function AppContent() {
         <SiWhatsapp />
       </motion.a>
     </div>
+    </>
   )
 }
 

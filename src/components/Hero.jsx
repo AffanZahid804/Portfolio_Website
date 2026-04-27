@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { FiDownload, FiGithub, FiLinkedin, FiMail, FiArrowRight, FiBriefcase, FiArrowDown } from 'react-icons/fi'
 import {
@@ -17,12 +17,12 @@ const roles = [
 ]
 
 const techIcons = [
-  { icon: <SiReact />, x: '6%', y: '18%', delay: 0, duration: 16 },
-  { icon: <SiNodedotjs />, x: '86%', y: '22%', delay: 2.5, duration: 20 },
-  { icon: <SiJavascript />, x: '10%', y: '72%', delay: 4, duration: 14 },
-  { icon: <SiMongodb />, x: '82%', y: '68%', delay: 1.5, duration: 22 },
-  { icon: <SiTypescript />, x: '50%', y: '6%', delay: 3, duration: 18 },
-  { icon: <SiAmazonwebservices />, x: '50%', y: '88%', delay: 2, duration: 24 },
+  { icon: <SiReact />, x: '3%', y: '20%', delay: 0, duration: 16 },
+  { icon: <SiNodedotjs />, x: '88%', y: '18%', delay: 2.5, duration: 20 },
+  { icon: <SiJavascript />, x: '5%', y: '75%', delay: 4, duration: 14 },
+  { icon: <SiMongodb />, x: '85%', y: '72%', delay: 1.5, duration: 22 },
+  { icon: <SiTypescript />, x: '48%', y: '4%', delay: 3, duration: 18 },
+  { icon: <SiAmazonwebservices />, x: '48%', y: '90%', delay: 2, duration: 24 },
 ]
 
 const useTypingEffect = (texts, typingSpeed = 90, deletingSpeed = 45, pauseTime = 2200) => {
@@ -36,28 +36,59 @@ const useTypingEffect = (texts, typingSpeed = 90, deletingSpeed = 45, pauseTime 
 
     if (!isDeleting) {
       if (displayText.length < current.length) {
-        timer = setTimeout(() => {
-          setDisplayText(current.slice(0, displayText.length + 1))
-        }, typingSpeed)
+        timer = setTimeout(() => setDisplayText(current.slice(0, displayText.length + 1)), typingSpeed)
       } else {
         timer = setTimeout(() => setIsDeleting(true), pauseTime)
       }
     } else {
       if (displayText.length > 0) {
-        timer = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1))
-        }, deletingSpeed)
+        timer = setTimeout(() => setDisplayText(displayText.slice(0, -1)), deletingSpeed)
       } else {
         setIsDeleting(false)
         setTextIndex((prev) => (prev + 1) % texts.length)
       }
     }
-
     return () => clearTimeout(timer)
   }, [displayText, isDeleting, textIndex, texts, typingSpeed, deletingSpeed, pauseTime])
 
   return displayText
 }
+
+// Clip-masked word reveal — each word slides up from behind an overflow:hidden wrapper
+const WordReveal = ({ text, className, delay = 0.3, style = {} }) => (
+  <span className={className} aria-label={text} style={style}>
+    {text.split(' ').map((word, i, arr) => (
+      <span
+        key={word + i}
+        style={{
+          display: 'inline-block',
+          overflow: 'hidden',
+          verticalAlign: 'bottom',
+          marginRight: i < arr.length - 1 ? '0.22em' : 0,
+        }}
+      >
+        <motion.span
+          initial={{ y: '105%' }}
+          animate={{ y: 0 }}
+          transition={{
+            delay: delay + i * 0.08,
+            duration: 0.75,
+            ease: [0.215, 0.61, 0.355, 1],
+          }}
+          style={{ display: 'inline-block' }}
+        >
+          {word}
+        </motion.span>
+      </span>
+    ))}
+  </span>
+)
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay, duration: 0.7, ease: [0.4, 0, 0.2, 1] },
+})
 
 const Hero = () => {
   const [imageError, setImageError] = useState(false)
@@ -65,510 +96,323 @@ const Hero = () => {
   const typedRole = useTypingEffect(roles)
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    const check = () => setIsMobile(window.innerWidth < 1024)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
   }, [])
 
   const socialLinks = [
-    {
-      href: 'https://github.com/AffanZahid804',
-      label: 'GitHub',
-      icon: <FiGithub />,
-      color: '#94a3b8',
-      hoverBg: 'var(--gradient-1)',
-    },
-    {
-      href: 'https://www.linkedin.com/in/affan-zahid',
-      label: 'LinkedIn',
-      icon: <FiLinkedin />,
-      color: '#0ea5e9',
-      hoverBg: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
-    },
-    {
-      href: 'https://www.upwork.com/freelancers/~01dabd00704ad7f10b?mp_source=share',
-      label: 'Upwork',
-      icon: <FiBriefcase />,
-      color: '#14a800',
-      hoverBg: 'linear-gradient(135deg, #14a800, #0d7a00)',
-    },
+    { href: 'https://github.com/AffanZahid804', label: 'GitHub', icon: <FiGithub />, color: '#94a3b8', hoverBg: 'var(--gradient-1)' },
+    { href: 'https://www.linkedin.com/in/affan-zahid', label: 'LinkedIn', icon: <FiLinkedin />, color: '#0ea5e9', hoverBg: 'linear-gradient(135deg,#0ea5e9,#0284c7)' },
+    { href: 'https://www.upwork.com/freelancers/~01dabd00704ad7f10b?mp_source=share', label: 'Upwork', icon: <FiBriefcase />, color: '#14a800', hoverBg: 'linear-gradient(135deg,#14a800,#0d7a00)' },
   ]
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.15 }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] }
-    }
-  }
 
   return (
     <section
       id="home"
       className="section"
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '120px',
+        paddingTop: '110px',
+        paddingBottom: '80px',
         minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
-      {/* Floating tech icons background */}
+      {/* Floating tech icons — desktop only */}
       {!isMobile && techIcons.map((t, i) => (
         <div
           key={i}
           className="tech-float-icon"
-          style={{
-            left: t.x,
-            top: t.y,
-            '--duration': `${t.duration}s`,
-            '--delay': `${t.delay}s`,
-            fontSize: '2.5rem',
-          }}
+          style={{ left: t.x, top: t.y, '--duration': `${t.duration}s`, '--delay': `${t.delay}s`, fontSize: '2.2rem' }}
         >
           {t.icon}
         </div>
       ))}
 
-      {/* Section glow blobs */}
-      <div
-        className="glow"
-        style={{ top: '-200px', left: '-200px' }}
-      />
-      <div
-        className="glow"
-        style={{
-          bottom: '-200px',
-          right: '-200px',
-          background: 'radial-gradient(circle, rgba(var(--glow-rgb), 0.2) 0%, transparent 70%)',
-        }}
-      />
+      {/* Single subtle background glow */}
+      <div className="glow" style={{ top: '-80px', left: '-120px', opacity: 0.6 }} />
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '80px',
-          alignItems: 'center',
-          maxWidth: '1400px',
-          width: '100%',
-          position: 'relative',
-          zIndex: 1,
-        }}
-        className="hero-container"
-      >
-        {/* Left Column */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Welcome badge */}
-          <motion.div
-            variants={itemVariants}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '10px 22px',
-              background: 'rgba(var(--glow-rgb), 0.1)',
-              border: '1px solid rgba(var(--glow-rgb), 0.3)',
-              borderRadius: '50px',
-              fontSize: '0.9rem',
-              marginBottom: '30px',
-              color: 'var(--primary)',
-              backdropFilter: 'blur(10px)',
-              boxShadow: '0 4px 20px rgba(var(--glow-rgb), 0.15)',
-            }}
-          >
-            <span style={{ animation: 'float-slow 2.5s ease-in-out infinite', display: 'inline-block' }}>👋</span>
-            Welcome to My Portfolio
-          </motion.div>
+      <div style={{ width: '100%', position: 'relative', zIndex: 1 }}>
 
-          {/* Name & Title */}
-          <motion.h1
-            variants={itemVariants}
-            style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
-              fontWeight: 900,
-              lineHeight: 1.1,
-              marginBottom: '20px',
-              letterSpacing: '-2px',
-            }}
-          >
-            Hi, I'm{' '}
-            <span className="gradient-text">Affan Zahid</span>
-          </motion.h1>
-
-          {/* Typing role */}
-          <motion.div
-            variants={itemVariants}
-            style={{
-              fontSize: 'clamp(1.4rem, 2.5vw, 2rem)',
-              fontWeight: 700,
-              marginBottom: '30px',
-              color: 'var(--light)',
-              height: '2.5rem',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <span className="gradient-text">{typedRole}</span>
-            <span className="typing-cursor" />
-          </motion.div>
-
-          {/* Bio */}
-          <motion.p
-            variants={itemVariants}
-            style={{
-              fontSize: '1.15rem',
-              color: 'var(--gray)',
-              lineHeight: 1.85,
-              marginBottom: '40px',
-              maxWidth: '580px',
-            }}
-          >
-            Software Engineer with 3+ years building scalable web and mobile applications
-            across the MERN stack, NestJS, and cloud (AWS, Firebase). Strong focus on clean
-            architecture, performance, and maintainable production systems. Available for projects on{' '}
-            <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Upwork</span>.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            className="hero-buttons"
-            variants={itemVariants}
-            style={{
-              display: 'flex',
-              gap: '16px',
-              flexWrap: 'wrap',
-              marginBottom: '50px',
-            }}
-          >
-            <motion.a
-              href="#projects"
-              className="btn btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              View My Work <FiArrowRight />
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="btn btn-outline"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <FiMail /> Get In Touch
-            </motion.a>
-            <motion.a
-              href={`${import.meta.env.BASE_URL}${CV_PATH}?v=${CV_CACHE_BUST}`}
-              className="btn btn-outline"
-              download="Affan-Zahid-CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <FiDownload /> Download CV
-            </motion.a>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            className="hero-social-links"
-            variants={itemVariants}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px',
-              alignItems: 'inherit',
-            }}
-          >
-            <span style={{ color: 'var(--gray)', fontSize: '0.9rem' }}>Follow me</span>
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-            {socialLinks.map((s, i) => (
-              <motion.a
-                key={i}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                whileHover={{ y: -6, scale: 1.15 }}
-                whileTap={{ scale: 0.9 }}
-                style={{
-                  width: '48px',
-                  height: '48px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: 'rgba(var(--glow-rgb), 0.08)',
-                  borderRadius: '50%',
-                  color: s.color,
-                  fontSize: '1.3rem',
-                  border: '1px solid rgba(var(--glow-rgb), 0.2)',
-                  textDecoration: 'none',
-                  transition: 'all 0.3s ease',
-                  backdropFilter: 'blur(8px)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = s.hoverBg
-                  e.currentTarget.style.color = '#fff'
-                  e.currentTarget.style.boxShadow = `0 8px 24px rgba(var(--glow-rgb), 0.5)`
-                  e.currentTarget.style.borderColor = 'transparent'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(var(--glow-rgb), 0.08)'
-                  e.currentTarget.style.color = s.color
-                  e.currentTarget.style.boxShadow = 'none'
-                  e.currentTarget.style.borderColor = 'rgba(var(--glow-rgb), 0.2)'
-                }}
-              >
-                {s.icon}
-              </motion.a>
-            ))}
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Right Column — Profile Photo */}
-        <motion.div
-          className="hero-image-column"
-          initial={{ opacity: 0, scale: 0.7, rotate: -5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ delay: 0.3, duration: 1, ease: [0.4, 0, 0.2, 1] }}
+        {/* ── TOP META ROW ─────────────────────────────── */}
+        <div
           style={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            position: 'relative',
+            paddingBottom: '20px',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+            marginBottom: '52px',
+            overflow: 'hidden',
           }}
         >
-          {/* Outer orbit rings - only on desktop */}
-          {!isMobile && (
-            <>
-              <div
-                style={{
-                  position: 'absolute',
-                  width: '560px',
-                  height: '560px',
-                  borderRadius: '50%',
-                  border: '1px dashed rgba(var(--glow-rgb), 0.2)',
-                  animation: 'spin-ring 25s linear infinite',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                }}
-              >
-                {/* Orbit dot 1 */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '-6px',
-                    left: '50%',
-                    width: '12px',
-                    height: '12px',
-                    borderRadius: '50%',
-                    background: 'var(--primary)',
-                    boxShadow: '0 0 16px rgba(var(--glow-rgb), 0.9)',
-                    transform: 'translateX(-50%)',
-                  }}
-                />
-              </div>
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+            style={{ fontSize: '0.72rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(148,163,184,0.45)' }}
+          >
+            Portfolio — 2026
+          </motion.span>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+          >
+            <span className="status-dot" />
+            <span style={{ fontSize: '0.72rem', letterSpacing: '0.1em', color: 'rgba(148,163,184,0.45)' }}>
+              Available for work
+            </span>
+          </motion.div>
+        </div>
 
-              <div
-                style={{
-                  position: 'absolute',
-                  width: '620px',
-                  height: '620px',
-                  borderRadius: '50%',
-                  border: '1px dashed rgba(var(--glow-rgb), 0.12)',
-                  animation: 'spin-ring-reverse 35s linear infinite',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                }}
+        {/* ── EDITORIAL NAME + PHOTO ────────────────────── */}
+        <div
+          className="hero-name-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr auto',
+            alignItems: 'flex-end',
+            gap: '40px',
+            marginBottom: isMobile ? '32px' : '48px',
+          }}
+        >
+          {/* Giant name */}
+          <h1
+          style={{
+            fontSize: 'clamp(2.8rem, 6vw, 6.5rem)',
+            fontWeight: 900,
+            lineHeight: 0.9,
+            letterSpacing: '-3px',
+            margin: 0,
+          }}
+          >
+            <span style={{ display: 'block', overflow: 'hidden' }}>
+              <motion.span
+                initial={{ y: '108%' }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.25, duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+                style={{ display: 'block', color: 'var(--light)' }}
               >
-                {/* Orbit dot 2 */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: '-6px',
-                    left: '50%',
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '50%',
-                    background: 'var(--accent)',
-                    boxShadow: '0 0 12px rgba(var(--glow-rgb), 0.8)',
-                    transform: 'translateX(-50%)',
-                  }}
-                />
-              </div>
-            </>
-          )}
+                AFFAN
+              </motion.span>
+            </span>
+            <span style={{ display: 'block', overflow: 'hidden' }}>
+              <motion.span
+                initial={{ y: '108%' }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.38, duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+                className="gradient-text"
+                style={{ display: 'block' }}
+              >
+                ZAHID
+              </motion.span>
+            </span>
+          </h1>
 
-          {/* Profile circle */}
-          <div
-            className="hero-profile"
+          {/* Circular photo — desktop right, mobile hidden (reappears below) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+            className="hero-photo-circle"
             style={{
-              width: '480px',
-              height: '480px',
+              width: 'clamp(140px, 18vw, 220px)',
+              height: 'clamp(140px, 18vw, 220px)',
               borderRadius: '50%',
-              background: 'var(--gradient-1)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: `
-                0 0 0 4px rgba(var(--glow-rgb), 0.3),
-                0 0 50px rgba(var(--glow-rgb), 0.35),
-                0 25px 80px rgba(var(--glow-rgb), 0.25)
-              `,
-              animation: isMobile ? 'none' : 'float-slow 7s ease-in-out infinite',
-              position: 'relative',
               overflow: 'hidden',
               flexShrink: 0,
+              border: '1.5px solid rgba(var(--glow-rgb), 0.2)',
             }}
           >
-            {/* Inner circle */}
-            <div
+            {!imageError ? (
+              <img
+                src={profileImage}
+                alt="Affan Zahid"
+                onError={() => setImageError(true)}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            ) : (
+              <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--gradient-1)', fontSize: '3rem', fontWeight: 700 }}>
+                AZ
+              </div>
+            )}
+          </motion.div>
+        </div>
+
+        {/* ── DIVIDER — sweeps left-to-right ─────────── */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ delay: 0.52, duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+          style={{
+            height: '1px',
+            background: 'linear-gradient(90deg, rgba(var(--glow-rgb),0.35) 0%, rgba(255,255,255,0.06) 50%, transparent 100%)',
+            transformOrigin: '0%',
+            marginBottom: '44px',
+          }}
+        />
+
+        {/* ── BOTTOM GRID: role/bio left · buttons/social right ── */}
+        <div
+          className="hero-bottom-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '1.1fr 1fr',
+            gap: isMobile ? '36px' : '80px',
+            alignItems: 'start',
+          }}
+        >
+          {/* Left col: role + bio */}
+          <div>
+            <motion.div
+              {...fadeUp(0.65)}
               style={{
-                position: 'absolute',
-                inset: '6px',
-                borderRadius: '50%',
-                background: 'var(--dark)',
+                fontSize: 'clamp(1.2rem, 2.2vw, 1.75rem)',
+                fontWeight: 700,
+                marginBottom: '20px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden',
+                gap: '2px',
               }}
             >
-              {!imageError ? (
-                <img
-                  src={profileImage}
-                  alt="Affan Zahid"
-                  onError={() => setImageError(true)}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    borderRadius: '50%',
-                  }}
-                />
-              ) : (
-                <div
-                  style={{
-                    fontSize: '7rem',
-                    fontWeight: 700,
-                    color: 'var(--white)',
-                  }}
-                >
-                  AZ
-                </div>
-              )}
-            </div>
+              <span className="gradient-text">{typedRole}</span>
+              <span className="typing-cursor" />
+            </motion.div>
+
+            <motion.p
+              {...fadeUp(0.75)}
+              style={{ fontSize: '1.05rem', color: 'var(--gray)', lineHeight: 1.85, maxWidth: '540px' }}
+            >
+              Software Engineer with 3+ years building scalable web and mobile applications
+              across the MERN stack, NestJS, and cloud (AWS, Firebase). Strong focus on clean
+              architecture, performance, and maintainable production systems. Available for projects on{' '}
+              <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Upwork</span>.
+            </motion.p>
           </div>
 
-          {/* Floating skill badges */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.2, duration: 0.7 }}
-            style={{
-              position: 'absolute',
-              right: '-20px',
-              top: '15%',
-              background: 'rgba(10, 10, 20, 0.85)',
-              backdropFilter: 'blur(16px)',
-              border: '1px solid rgba(var(--glow-rgb), 0.25)',
-              borderRadius: '14px',
-              padding: '12px 18px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              boxShadow: '0 8px 32px rgba(var(--glow-rgb), 0.2)',
-              animation: 'float 5s ease-in-out infinite',
-            }}
-          >
-            <span style={{ fontSize: '1.4rem' }}>⚡</span>
-            <div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--gray)' }}>Experience</div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--light)' }}>3+ Years</div>
-            </div>
-          </motion.div>
+          {/* Right col: CTA buttons + socials */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            <motion.div
+              {...fadeUp(0.8)}
+              className="hero-buttons"
+              style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}
+            >
+              <motion.a
+                href="#projects"
+                className="btn btn-primary"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                View My Work <FiArrowRight />
+              </motion.a>
+              <motion.a
+                href="#contact"
+                className="btn btn-outline"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <FiMail /> Get In Touch
+              </motion.a>
+              <motion.a
+                href={`${import.meta.env.BASE_URL}${CV_PATH}?v=${CV_CACHE_BUST}`}
+                className="btn btn-outline"
+                download="Affan-Zahid-CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <FiDownload /> Download CV
+              </motion.a>
+            </motion.div>
 
+            {/* Social links */}
+            <motion.div {...fadeUp(0.9)} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <span style={{ color: 'rgba(148,163,184,0.45)', fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                Connect
+              </span>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                {socialLinks.map((s, i) => (
+                  <motion.a
+                    key={i}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    whileHover={{ y: -5, scale: 1.12 }}
+                    whileTap={{ scale: 0.9 }}
+                    style={{
+                      width: '46px',
+                      height: '46px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: 'rgba(var(--glow-rgb), 0.07)',
+                      borderRadius: '50%',
+                      color: s.color,
+                      fontSize: '1.2rem',
+                      border: '1px solid rgba(var(--glow-rgb), 0.18)',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease',
+                      backdropFilter: 'blur(8px)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = s.hoverBg
+                      e.currentTarget.style.color = '#fff'
+                      e.currentTarget.style.borderColor = 'transparent'
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(var(--glow-rgb),0.5)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(var(--glow-rgb), 0.07)'
+                      e.currentTarget.style.color = s.color
+                      e.currentTarget.style.borderColor = 'rgba(var(--glow-rgb), 0.18)'
+                      e.currentTarget.style.boxShadow = 'none'
+                    }}
+                  >
+                    {s.icon}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* ── SCROLL HINT ──────────────────────────────── */}
+        {!isMobile && (
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.4, duration: 0.7 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.6, duration: 0.6 }}
             style={{
               position: 'absolute',
-              left: '-10px',
-              bottom: '20%',
-              background: 'rgba(10, 10, 20, 0.85)',
-              backdropFilter: 'blur(16px)',
-              border: '1px solid rgba(var(--glow-rgb), 0.25)',
-              borderRadius: '14px',
-              padding: '12px 18px',
+              bottom: '-20px',
+              right: 0,
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              gap: '10px',
-              boxShadow: '0 8px 32px rgba(var(--glow-rgb), 0.2)',
-              animation: 'float 6s ease-in-out infinite',
-              animationDelay: '1.5s',
+              gap: '8px',
+              color: 'rgba(148,163,184,0.35)',
+              fontSize: '0.68rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
             }}
           >
-            <span style={{ fontSize: '1.4rem' }}>🚀</span>
-            <div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--gray)' }}>Projects</div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--light)' }}>10+ Built</div>
-            </div>
+            <span>Scroll</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <FiArrowDown size={14} />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        )}
       </div>
-
-      {/* Scroll indicator — hidden on mobile */}
-      <motion.div
-        className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        style={{
-          position: 'absolute',
-          bottom: '40px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-          color: 'var(--gray)',
-          fontSize: '0.8rem',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-        }}
-      >
-        <span>Scroll Down</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <FiArrowDown size={18} />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

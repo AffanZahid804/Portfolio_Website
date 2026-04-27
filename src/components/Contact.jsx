@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiBriefcase } from 'react-icons/fi'
 import { SiWhatsapp } from 'react-icons/si'
+import SectionMeta from './SectionMeta'
 
 const Contact = () => {
   const contactInfo = [
@@ -39,10 +40,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section" style={{ position: 'relative', paddingBottom: '150px' }}>
-      <div
-        className="glow"
-        style={{ top: '20%', right: '-300px' }}
-      />
+      <div className="section-num">06</div>
+      <div className="glow" style={{ top: '20%', right: '-300px' }} />
+
+      <SectionMeta label="06 — Contact" />
 
       <motion.h2
         className="section-title"

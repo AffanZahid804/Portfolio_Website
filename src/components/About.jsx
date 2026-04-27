@@ -1,5 +1,29 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 import { FiCode, FiLayers, FiTrendingUp, FiAward, FiUsers, FiBriefcase } from 'react-icons/fi'
+import SectionMeta from './SectionMeta'
+
+const CountUp = ({ end, suffix = '+', duration = 1800 }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.6 })
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!isInView) return
+    let startTime = null
+    const tick = (timestamp) => {
+      if (!startTime) startTime = timestamp
+      const elapsed = timestamp - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.round(eased * end))
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [isInView, end, duration])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
 
 const About = () => {
   const features = [
@@ -41,14 +65,13 @@ const About = () => {
 
   return (
     <section id="about" className="section" style={{ position: 'relative' }}>
+      <div className="section-num">01</div>
       <div
         className="glow"
-        style={{
-          top: '50%',
-          left: '-300px',
-          transform: 'translateY(-50%)',
-        }}
+        style={{ top: '50%', left: '-300px', transform: 'translateY(-50%)' }}
       />
+
+      <SectionMeta label="01 — About" />
 
       <motion.h2
         className="section-title"
@@ -164,7 +187,7 @@ const About = () => {
                   fontWeight: 800,
                   marginBottom: '8px',
                 }}>
-                  {stat.number}
+                  <CountUp end={parseInt(stat.number)} />
                 </div>
                 <div style={{ color: 'var(--gray)', fontSize: '0.9rem', lineHeight: 1.4 }}>
                   {stat.label}

@@ -35,7 +35,7 @@ const ThemeSwitcher = () => {
               position: 'absolute',
               bottom: '70px',
               left: 0,
-              background: 'rgba(10, 10, 20, 0.97)',
+              background: 'rgba(8, 8, 8, 0.98)',
               backdropFilter: isMobile ? 'none' : 'blur(16px)',
               WebkitBackdropFilter: isMobile ? 'none' : 'blur(16px)',
               border: '1px solid rgba(255,255,255,0.08)',

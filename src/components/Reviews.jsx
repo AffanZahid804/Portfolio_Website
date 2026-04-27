@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FiStar } from 'react-icons/fi'
 import { FaQuoteLeft } from 'react-icons/fa'
+import SectionMeta from './SectionMeta'
 
 const Reviews = () => {
   const reviews = [
@@ -40,15 +41,10 @@ const Reviews = () => {
 
   return (
     <section id="reviews" className="section" style={{ position: 'relative' }}>
-      <div
-        className="glow"
-        style={{
-          top: '50%',
-          left: '-300px',
-          transform: 'translateY(-50%)',
-          background: 'radial-gradient(circle, rgba(var(--glow-rgb), 0.2) 0%, transparent 70%)',
-        }}
-      />
+      <div className="section-num">05</div>
+      <div className="glow" style={{ top: '50%', left: '-300px', transform: 'translateY(-50%)', background: 'radial-gradient(circle,rgba(var(--glow-rgb),0.2) 0%,transparent 70%)' }} />
+
+      <SectionMeta label="05 — Reviews" />
 
       <motion.h2
         className="section-title"
