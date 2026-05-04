@@ -63,6 +63,11 @@ const About = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] } },
   }
 
+  const bioStagger = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.09 } },
+  }
+
   return (
     <section id="about" className="section" style={{ position: 'relative' }}>
       <div className="section-num">01</div>
@@ -125,32 +130,37 @@ const About = () => {
             style={{
               fontSize: '2.4rem',
               fontWeight: 700,
-              marginBottom: '30px',
-              lineHeight: 1.2,
+              marginBottom: '2rem',
+              lineHeight: 1.22,
             }}
           >
             Building Scalable Solutions with{' '}
             <span className="gradient-text">Innovation & Excellence</span>
           </motion.h3>
 
-          {[
-            `I'm a results-driven Software Engineer based in Lahore, Pakistan, with about three years of experience building scalable web and mobile applications. I focus on clean architecture, production-ready systems, and the MERN stack alongside NestJS, PostgreSQL, MongoDB, and AWS.`,
-            <>I ship end-to-end solutions—SaaS platforms, real-time apps, and backend services—including geolocation and discovery features, Socket.io chat, and RESTful APIs for international clients.</>,
-            <>Currently at <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> as a Software Engineer. Previously at <strong style={{ color: 'var(--primary)' }}>360HR</strong>, <strong style={{ color: 'var(--primary)' }}>Skylinx Technologies</strong>, and <strong style={{ color: 'var(--primary)' }}>OOP Technologies</strong>. Also available for freelance work on <strong style={{ color: 'var(--primary)' }}>Upwork</strong>.</>,
-          ].map((text, i) => (
-            <motion.p
-              key={i}
-              variants={itemVariants}
-              style={{
-                fontSize: '1.08rem',
-                color: 'var(--gray)',
-                lineHeight: 1.85,
-                marginBottom: '22px',
-              }}
-            >
-              {text}
+          <motion.div className="about-bio" variants={bioStagger}>
+            {[
+              `I'm a results-driven Software Engineer based in Lahore, Pakistan, with 3+ years of experience building scalable web and mobile applications. I care about clean architecture, maintainability, and production-ready systems across the MERN stack, NestJS, PostgreSQL, MongoDB, and AWS.`,
+              <>I deliver end-to-end solutions—SaaS platforms, real-time products, and backend services—with strengths in responsive UIs, REST APIs, Socket.io, and integrations for international clients.</>,
+              <>
+                Currently a Software Engineer at <strong style={{ color: 'var(--primary)' }}>Techtimize</strong> (Oct 2025 – present). Previously at{' '}
+                <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> (June 2024 – Oct 2025) on a production React Native app.
+              </>,
+              <>
+                Selected contract work includes platforms such as <strong style={{ color: 'var(--primary)' }}>360HR</strong>,{' '}
+                <strong style={{ color: 'var(--primary)' }}>Instant Custom Boxes</strong>, <strong style={{ color: 'var(--primary)' }}>French Riviera Travel</strong>, and more—see{' '}
+                <a href="#projects" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Projects</a>. Also available on{' '}
+                <strong style={{ color: 'var(--primary)' }}>Upwork</strong>.
+              </>,
+            ].map((text, i) => (
+              <motion.p key={i} variants={itemVariants} className="about-bio-p">
+                {text}
+              </motion.p>
+            ))}
+            <motion.p variants={itemVariants} className="about-bio-p about-bio-education">
+              <strong>Education:</strong> Bachelor of Science in Computer Science, University of Lahore (Sep 2020 – Jul 2024).
             </motion.p>
-          ))}
+          </motion.div>
 
           {/* Stats */}
           <div
@@ -159,7 +169,7 @@ const About = () => {
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
               gap: '24px',
-              marginTop: '10px',
+              marginTop: '3rem',
             }}
           >
             {stats.map((stat, index) => (

@@ -5,6 +5,7 @@ import {
   SiTailwindcss, SiMongodb, SiPostgresql,
   SiGit, SiFirebase, SiNextdotjs, SiExpress,
   SiAmazonwebservices, SiSocketdotio, SiNestjs, SiDocker, SiSupabase,
+  SiCplusplus, SiMysql, SiPostman,
 } from 'react-icons/si'
 import { FaReact } from 'react-icons/fa'
 
@@ -27,11 +28,15 @@ const allSkills = [
   { name: 'AWS', icon: <SiAmazonwebservices />, color: '#ff9900' },
   { name: 'Docker', icon: <SiDocker />, color: '#2496ed' },
   { name: 'Git', icon: <SiGit />, color: '#f05032' },
+  { name: 'C++', icon: <SiCplusplus />, color: '#00599c' },
+  { name: 'SQL', icon: <SiMysql />, color: '#4479a1' },
+  { name: 'Postman', icon: <SiPostman />, color: '#ff6c37' },
 ]
 
-const row1 = allSkills.slice(0, 6)
-const row2 = allSkills.slice(6, 12)
-const row3 = allSkills.slice(12)
+const rowSize = Math.ceil(allSkills.length / 3)
+const row1 = allSkills.slice(0, rowSize)
+const row2 = allSkills.slice(rowSize, rowSize * 2)
+const row3 = allSkills.slice(rowSize * 2)
 
 const SkillCard = ({ skill }) => (
   <div className="marquee-skill-card">

@@ -6,12 +6,12 @@ import {
   SiMongodb, SiTypescript, SiAmazonwebservices
 } from 'react-icons/si'
 import profileImage from '../assets/images/profile.jpeg'
-import { CV_CACHE_BUST, CV_PATH } from '../cvAsset'
+import { CV_CACHE_BUST, CV_URL } from '../cvAsset'
 
 const roles = [
   'Software Engineer',
   'MERN Stack Developer',
-  'Mobile App Developer',
+  'React Native Developer',
   'Full Stack Developer',
   'React & Node.js Developer',
 ]
@@ -289,9 +289,9 @@ const Hero = () => {
               {...fadeUp(0.75)}
               style={{ fontSize: '1.05rem', color: 'var(--gray)', lineHeight: 1.85, maxWidth: '540px' }}
             >
-              Software Engineer with 3+ years building scalable web and mobile applications
-              across the MERN stack, NestJS, and cloud (AWS, Firebase). Strong focus on clean
-              architecture, performance, and maintainable production systems. Available for projects on{' '}
+              Software Engineer · MERN stack · React Native—3+ years shipping scalable web and mobile
+              apps with clean architecture and production-ready backends (Node.js, NestJS, PostgreSQL,
+              MongoDB, AWS, Firebase). Currently at Techtimize. Open to engagements on{' '}
               <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Upwork</span>.
             </motion.p>
           </div>
@@ -320,9 +320,9 @@ const Hero = () => {
                 <FiMail /> Get In Touch
               </motion.a>
               <motion.a
-                href={`${import.meta.env.BASE_URL}${CV_PATH}?v=${CV_CACHE_BUST}`}
+                href={`${CV_URL}?v=${CV_CACHE_BUST}`}
                 className="btn btn-outline"
-                download="Affan-Zahid-CV.pdf"
+                download="Affan_Zahid_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}

@@ -35,7 +35,7 @@ const Projects = () => {
     {
       title: '360HR',
       description:
-        'Enterprise-grade job portal and recruitment platform—job posting workflows, applicant tracking, and analytics dashboards for teams hiring at scale.',
+        'Enterprise job portal and applicant tracking system—led full-stack delivery of high-performance React.js UIs and Node.js REST APIs for job posting workflows and analytics dashboards.',
       image: hrImg,
       tags: ['HR & SaaS', 'React', 'Node.js', 'Cloud'],
       link: 'https://360hr.cloud/',
@@ -45,7 +45,8 @@ const Projects = () => {
     },
     {
       title: 'Bitrix24 Tasks & Projects',
-      description: 'Free online task management platform to streamline team collaboration—from task assignment to project completion. Boost productivity and simplify workflow.',
+      description:
+        'CRM-style modules—task management, collaboration, user roles, reporting, and workflow automation—with scalable admin and business interfaces for operational tracking.',
       image: bitrixImg,
       tags: ['Task Management', 'Web Platform'],
       link: 'https://www.bitrix24.com/',
@@ -55,7 +56,8 @@ const Projects = () => {
     },
     {
       title: 'T-Mobile',
-      description: 'Leading US wireless operator—full-suite digital platform for personal and business connectivity. Seamless customer-first experience for millions nationwide.',
+      description:
+        'Real-time collaborative task management—live sync, multi-user support, and role-based access with React.js and Node.js; responsive UI and APIs for collaborative workflows.',
       image: tmobileImg,
       tags: ['Telecom & Digital', 'Enterprise'],
       link: 'https://www.t-mobile.com/',
@@ -66,7 +68,7 @@ const Projects = () => {
     {
       title: 'French Riviera Travel',
       description:
-        'Travel and experience discovery platform with location-based exploration, curated listings, and smooth user interaction—built for performance, usability, and content management.',
+        'Travel content platform—destination guides, attractions, blogs, and accommodation-related content—with responsive pages and smoother navigation for discovery.',
       image: reveriaImg,
       tags: ['Travel & Tourism', 'Web Platform'],
       link: 'https://frenchriviera.travel/',
@@ -76,7 +78,8 @@ const Projects = () => {
     },
     {
       title: 'Instant Custom Boxes',
-      description: 'Leading custom packaging platform—design, customize, and order printed boxes with instant pricing, fast turnaround, and free shipping.',
+      description:
+        'Custom packaging e-commerce—responsive sections for product categories, quote requests, and landing pages; improved browsing, customization flows, and inquiry-based ordering.',
       image: instantBoxesImg,
       tags: ['Packaging & E-Commerce', 'Web App'],
       link: 'https://www.instantcustomboxes.com/',

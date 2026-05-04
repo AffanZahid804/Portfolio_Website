@@ -217,7 +217,7 @@ const Contact = () => {
         transition={{ duration: 0.8 }}
       >
         <p style={{ color: 'var(--gray)', fontSize: '0.98rem' }}>
-          © 2025{' '}
+          © 2026{' '}
           <span className="gradient-text" style={{ fontWeight: 700 }}>Affan Zahid</span>
           . All rights reserved. Built with ❤️ using React & Vite.
         </p>

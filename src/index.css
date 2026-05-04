@@ -292,6 +292,39 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto;
 }
 
+/* About — readable bio column */
+.about-bio {
+  max-width: min(100%, 44rem);
+  padding-right: clamp(0px, 3vw, 24px);
+}
+
+.about-bio-p {
+  font-size: 1.05rem;
+  color: var(--gray);
+  line-height: 1.92;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.about-bio-p + .about-bio-p {
+  margin-top: 1.5rem;
+}
+
+.about-bio-education {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(var(--glow-rgb), 0.14);
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+.about-bio-education strong {
+  color: var(--light);
+  font-weight: 600;
+}
+
 /* ============ GRADIENT TEXT ============ */
 .gradient-text {
   background: var(--gradient-1);
@@ -1034,6 +1067,14 @@ h1, h2, h3, h4, h5, h6 {
   .about-left-heading {
     font-size: clamp(1.4rem, 5vw, 2rem) !important;
     letter-spacing: -0.5px !important;
+  }
+
+  .about-bio {
+    padding-right: 0;
+  }
+
+  .about-bio-p + .about-bio-p {
+    margin-top: 1.35rem;
   }
 
   .experience-timeline {
