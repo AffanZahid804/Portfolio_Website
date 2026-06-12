@@ -8,6 +8,9 @@ import bitrixImg from '../assets/images/assets/bitrix.png'
 import tmobileImg from '../assets/images/assets/tmobile.png'
 import reveriaImg from '../assets/images/assets/reveria.png'
 import instantBoxesImg from '../assets/images/assets/instant-custom-boxes.png'
+import webAppImg from '../assets/images/assets/Web-app-development.jpg'
+import uiuxImg from '../assets/images/assets/UIUX-design.jpg'
+import cloudImg from '../assets/images/assets/cloud.jpg'
 
 const Projects = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -22,6 +25,37 @@ const Projects = () => {
   }, [])
 
   const projects = [
+    {
+      title: 'Ishout',
+      description:
+        'Influencer marketing and brand collaboration platform—businesses discover, manage, and collaborate with content creators through AI-powered matching, campaign workflows, creator onboarding, analytics dashboards, and role-based access.',
+      image: webAppImg,
+      tags: ['Influencer Marketing', 'Next.js', 'Python', 'SaaS'],
+      link: 'https://ishout.ae/',
+      featured: true,
+      gradient: 'linear-gradient(135deg, #6d28d9 0%, #a855f7 100%)',
+      accentColor: '#9333ea',
+    },
+    {
+      title: 'Tawabiq',
+      description:
+        'Real estate platform with broker portal (properties, leads, commissions, appointments), user marketplace (map search, favorites, SSR), and enterprise admin for listings, approvals, content moderation, and reporting dashboards.',
+      image: uiuxImg,
+      tags: ['Real Estate', 'Next.js', 'Python', 'Web Platform'],
+      featured: true,
+      gradient: 'linear-gradient(135deg, #065f46 0%, #059669 100%)',
+      accentColor: '#10b981',
+    },
+    {
+      title: 'Entry Club',
+      description:
+        'Multi-tenant web and mobile platform with microservice-ready architecture—Meta and Google API integrations, OAuth, push notifications, payments, CI/CD across environments, and role-based access supporting thousands of concurrent users.',
+      image: cloudImg,
+      tags: ['Multi-Tenant', 'Next.js', 'NestJS', 'Mobile'],
+      featured: true,
+      gradient: 'linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%)',
+      accentColor: '#4f46e5',
+    },
     {
       title: 'Dentalic',
       description: 'Dental management SaaS to streamline clinic operations—from patient scheduling to billing. Boost efficiency, improve patient care, and simplify administrative tasks.',

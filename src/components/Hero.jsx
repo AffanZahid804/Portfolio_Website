@@ -291,7 +291,7 @@ const Hero = () => {
             >
               Software Engineer · MERN stack · React Native—3+ years shipping scalable web and mobile
               apps with clean architecture and production-ready backends (Node.js, NestJS, PostgreSQL,
-              MongoDB, AWS, Firebase). Currently at Techtimize. Open to engagements on{' '}
+              MongoDB, AWS, Firebase). Currently at Techtimize building platforms like Ishout. Open to engagements on{' '}
               <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Upwork</span>.
             </motion.p>
           </div>

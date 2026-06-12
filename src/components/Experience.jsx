@@ -11,15 +11,15 @@ const Experience = () => {
       location: 'Lahore, Pakistan · On-site',
       period: 'Oct 2025 – Present',
       description:
-        'Full-time software engineer building production web platforms for business clients with React.js, Node.js, and modern JavaScript—focused on scalable frontends, reliable APIs, and secure backends.',
+        'Full-time software engineer building production web platforms for international business clients with React.js, Next.js, Node.js, and Python—focused on scalable frontends, reliable APIs, secure backends, and direct client communication.',
       achievements: [
-        'Develop and maintain full-stack web applications using React.js, Node.js, and modern JavaScript for production-level clients',
-        'Build responsive, component-driven UIs with reusable architecture, clean UX, and optimized performance (lazy loading, code splitting, asset optimization)',
-        'Design and maintain RESTful APIs and backend services; integrate databases, authentication, admin panels, and role-based access control',
-        'Deliver scalable React.js and Next.js apps for global clients; integrate third-party APIs, auth flows, and Stripe',
-        'Design microservices-style backends with NestJS and PostgreSQL on AWS, including a secure admin portal',
+        'Led development of Ishout—an influencer marketing platform with campaign workflows, creator onboarding, analytics dashboards, and RBAC (Next.js + Python)',
+        'Built Tawabiq—a real estate platform with broker, user, and admin portals featuring map search, geolocation, SSR, and enterprise moderation workflows',
+        'Architected Entry Club—a multi-tenant web and mobile platform with NestJS-ready design, Meta/Google APIs, OAuth, payments, and CI/CD across Dev, Staging, and Production',
+        'Accelerate delivery with AI-assisted tools (Claude Code, Cursor) while maintaining code quality through structured prompt engineering',
+        'Design microservices-style backends with NestJS and PostgreSQL on AWS; integrate Stripe, authentication, and role-based access control',
       ],
-      technologies: ['React.js', 'Next.js', 'Node.js', 'NestJS', 'PostgreSQL', 'MongoDB', 'AWS', 'Stripe'],
+      technologies: ['React.js', 'Next.js', 'Node.js', 'NestJS', 'Python', 'PostgreSQL', 'MongoDB', 'AWS', 'Stripe'],
       color: '#7c3aed',
     },
     {
@@ -36,8 +36,25 @@ const Experience = () => {
         'Shipped social features: friend requests, profile interactions, and connection management',
         'Built and integrated RESTful APIs for mobile features, user data, events, and real-time communication',
       ],
-      technologies: ['React Native', 'React', 'Node.js', 'Socket.io', 'REST APIs', 'MongoDB'],
+      technologies: ['React Native', 'React', 'Node.js', 'Socket.io', 'REST APIs', 'MongoDB', 'Firebase'],
       color: '#3b82f6',
+    },
+    {
+      type: 'parttime',
+      title: 'MERN Stack Developer',
+      company: '360HR',
+      location: 'Remote · Part-time',
+      period: 'Aug 2023 – Jan 2026',
+      description:
+        'Led end-to-end development of an enterprise job portal and applicant tracking system (ATS) using the MERN stack—high-performance React.js interfaces, Node.js REST APIs, and MongoDB optimization for international clients.',
+      achievements: [
+        'Built job posting, candidate search, applicant pipelines, and recruiter analytics dashboards with high-performance React.js UIs',
+        'Designed RESTful APIs with JWT-based role-based access for admins, recruiters, and applicants',
+        'Optimized MongoDB schemas, aggregation pipelines, and indexing for fast search across large candidate datasets',
+        'Communicated directly with international clients—requirement discussions, sprint demos, and agile delivery in production',
+      ],
+      technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'REST APIs'],
+      color: '#2563eb',
     },
   ]
 
