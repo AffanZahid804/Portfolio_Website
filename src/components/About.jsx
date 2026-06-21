@@ -48,7 +48,7 @@ const About = () => {
   ]
 
   const stats = [
-    { icon: <FiBriefcase />, number: '13+', label: 'Projects Worked On' },
+    { icon: <FiBriefcase />, number: '10+', label: 'Projects Worked On' },
     { icon: <FiUsers />, number: '5+', label: 'Happy Clients' },
     { icon: <FiAward />, number: '3+', label: 'Years Experience' },
   ]
@@ -140,17 +140,16 @@ const About = () => {
 
           <motion.div className="about-bio" variants={bioStagger}>
             {[
-              `I'm a results-driven Software Engineer based in Lahore, Pakistan, with 3+ years of experience building scalable web and mobile applications. I care about clean architecture, maintainability, and production-ready systems across the MERN stack, NestJS, PostgreSQL, MongoDB, and AWS.`,
-              <>I deliver end-to-end solutions—SaaS platforms, real-time products, and backend services—with strengths in responsive UIs, REST APIs, Socket.io, and integrations for international clients. I also leverage AI-powered development tools (Claude Code, Cursor) to ship high-quality features faster.</>,
+              `I'm a results-driven Software Engineer based in Lahore, Pakistan, with 3 years of experience building scalable web and mobile applications for international clients across SaaS, real estate, and social platforms. I care about clean architecture, multi-tenant systems, and production-ready delivery across the MERN stack, NestJS, PostgreSQL, MongoDB, and AWS.`,
+              <>I deliver end-to-end solutions—from requirement gathering through to production—with strengths in responsive UIs, REST APIs, Socket.io, and client communication across time zones. I also leverage AI-powered development tools (Claude Code, Cursor) to ship high-quality features faster.</>,
               <>
-                Currently a Software Engineer at <strong style={{ color: 'var(--primary)' }}>Techtimize</strong> (Oct 2025 – present), leading platforms such as{' '}
-                <strong style={{ color: 'var(--primary)' }}>Ishout</strong>, <strong style={{ color: 'var(--primary)' }}>Tawabiq</strong>, and{' '}
-                <strong style={{ color: 'var(--primary)' }}>Entry Club</strong>. Previously at{' '}
-                <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> (June 2024 – Oct 2025) on a production React Native app.
+                Currently a Software Engineer at <strong style={{ color: 'var(--primary)' }}>Techtimize</strong> (Oct 2025 – present), building full-stack web platforms for international clients. Previously at{' '}
+                <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> (June 2024 – Oct 2025) on a production React Native app, and{' '}
+                <strong style={{ color: 'var(--primary)' }}>360HR</strong> (Aug 2023 – Jan 2026) as MERN Stack Developer.
               </>,
               <>
-                Selected work also includes <strong style={{ color: 'var(--primary)' }}>360HR</strong>,{' '}
-                <strong style={{ color: 'var(--primary)' }}>Instant Custom Boxes</strong>, <strong style={{ color: 'var(--primary)' }}>French Riviera Travel</strong>, and more—see{' '}
+                Selected work also includes <strong style={{ color: 'var(--primary)' }}>Instant Custom Boxes</strong>,{' '}
+                <strong style={{ color: 'var(--primary)' }}>French Riviera Travel</strong>, and more—see{' '}
                 <a href="#projects" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Projects</a>. Also available on{' '}
                 <strong style={{ color: 'var(--primary)' }}>Upwork</strong>.
               </>,

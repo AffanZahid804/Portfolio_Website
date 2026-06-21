@@ -289,9 +289,9 @@ const Hero = () => {
               {...fadeUp(0.75)}
               style={{ fontSize: '1.05rem', color: 'var(--gray)', lineHeight: 1.85, maxWidth: '540px' }}
             >
-              Software Engineer · MERN stack · React Native—3+ years shipping scalable web and mobile
-              apps with clean architecture and production-ready backends (Node.js, NestJS, PostgreSQL,
-              MongoDB, AWS, Firebase). Currently at Techtimize building platforms like Ishout. Open to engagements on{' '}
+              Software Engineer · MERN stack · React Native—3 years shipping scalable web and mobile
+              apps for international clients across SaaS, real estate, and social platforms. Currently at
+              Techtimize. Open to engagements on{' '}
               <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Upwork</span>.
             </motion.p>
           </div>
