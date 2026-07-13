@@ -50,7 +50,7 @@ const About = () => {
   const stats = [
     { icon: <FiBriefcase />, number: '10+', label: 'Projects Worked On' },
     { icon: <FiUsers />, number: '5+', label: 'Happy Clients' },
-    { icon: <FiAward />, number: '3+', label: 'Years Experience' },
+    { icon: <FiAward />, number: '2+', label: 'Years Experience' },
   ]
 
   const containerVariants = {
@@ -140,18 +140,17 @@ const About = () => {
 
           <motion.div className="about-bio" variants={bioStagger}>
             {[
-              `I'm a results-driven Software Engineer based in Lahore, Pakistan, with 3 years of experience building scalable web and mobile applications for international clients across SaaS, real estate, and social platforms. I care about clean architecture, multi-tenant systems, and production-ready delivery across the MERN stack, NestJS, PostgreSQL, MongoDB, and AWS.`,
+              `I'm a results-driven Software Engineer based in Lahore, Pakistan, with 2 years of experience building scalable web and mobile applications for international clients across SaaS, real estate, and social platforms. I care about clean architecture, multi-tenant systems, and production-ready delivery across the MERN stack, NestJS, PostgreSQL, MongoDB, and AWS.`,
               <>I deliver end-to-end solutions—from requirement gathering through to production—with strengths in responsive UIs, REST APIs, Socket.io, and client communication across time zones. I also leverage AI-powered development tools (Claude Code, Cursor) to ship high-quality features faster.</>,
               <>
-                Currently a Software Engineer at <strong style={{ color: 'var(--primary)' }}>Techtimize</strong> (Oct 2025 – present), building full-stack web platforms for international clients. Previously at{' '}
+                Previously at{' '}
                 <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> (June 2024 – Oct 2025) on a production React Native app, and{' '}
                 <strong style={{ color: 'var(--primary)' }}>360HR</strong> (Aug 2023 – Jan 2026) as MERN Stack Developer.
               </>,
               <>
                 Selected work also includes <strong style={{ color: 'var(--primary)' }}>Instant Custom Boxes</strong>,{' '}
                 <strong style={{ color: 'var(--primary)' }}>French Riviera Travel</strong>, and more—see{' '}
-                <a href="#projects" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Projects</a>. Also available on{' '}
-                <strong style={{ color: 'var(--primary)' }}>Upwork</strong>.
+                <a href="#projects" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Projects</a>.
               </>,
             ].map((text, i) => (
               <motion.p key={i} variants={itemVariants} className="about-bio-p">
