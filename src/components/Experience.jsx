@@ -44,7 +44,7 @@ const Experience = () => {
       title: 'Software Engineer',
       company: 'Euphoria XR',
       location: 'Lahore, Pakistan · On-site',
-      period: 'June 2024 – Oct 2025',
+      period: 'Jun 2024 – Oct 2025',
       description:
         'Developed and maintained a production React Native social app with location-based discovery, real-time chat, friend management, user profiles, and event workflows.',
       achievements: [

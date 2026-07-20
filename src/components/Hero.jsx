@@ -320,7 +320,7 @@ const Hero = () => {
               <motion.a
                 href={`${CV_URL}?v=${CV_CACHE_BUST}`}
                 className="btn btn-outline"
-                download="Affan_Zahid_CV.pdf"
+                download="Affan_Zahid_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}

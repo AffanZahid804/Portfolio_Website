@@ -144,7 +144,7 @@ const About = () => {
               <>I deliver end-to-end solutions—from requirement gathering through to production—with strengths in responsive UIs, REST APIs, Socket.io, and client communication across time zones. I also leverage AI-powered development tools (Claude Code, Cursor) to ship high-quality features faster.</>,
               <>
                 Previously at{' '}
-                <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> (June 2024 – Oct 2025) on a production React Native app, and{' '}
+                <strong style={{ color: 'var(--primary)' }}>Euphoria XR</strong> (Jun 2024 – Oct 2025) on a production React Native app, and{' '}
                 <strong style={{ color: 'var(--primary)' }}>360HR</strong> (Aug 2023 – Jan 2026) as MERN Stack Developer.
               </>,
               <>
